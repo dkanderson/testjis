@@ -1,0 +1,3193 @@
+/*
+----------------------------------------------------------
+Author: Duane K. Anderson;
+url: http://jis.gov.jm
+Description: 
+==========================================================
+*/
+
+/* 0.625vw : 1rem : 16px (1:25.6)  [1px: 0.0390625vw]*/
+
+
+@font-face {
+    
+    font-family: 'merriweatherlight';     
+    font-style: normal;   
+    font-weight: normal;
+    src: url('merriweather-light.eot?#iefix') format('embedded-opentype'),
+    url('merriweather-light-webfont.woff2') format('woff2'),
+    url('merriweather-light-webfont.woff') format('woff');
+}
+
+
+:root{  
+    --color-jis-black: #1b1900;
+    --color-jis-cream-white: #fff8ef;
+    --color-jis-cream-white-b: #fff4e5;
+
+    /* Blues */
+    --color-jis-blue-1: #0d0f5a;
+    --color-jis-blue-2: #1d1f75;
+    --color-jis-blue-3: #2e3192;
+    --color-jis-blue-4: #484a9f;
+    --color-jis-blue-5: #6c6eb9;
+
+    /* yellows */
+    --color-jis-yellow-1: #817400;
+    --color-jis-yellow-2: #a89a14;
+    --color-jis-yellow-3: #d1c129;
+    --color-jis-yellow-4: #e4d651;
+    --color-jis-yellow-5: #fff383;
+
+    /* browns */
+    --color-jis-brown-1: #814900;
+    --color-jis-brown-2: #a86814;
+    --color-jis-brown-3: #d18828;
+    --color-jis-brown-4: #e2a451;
+    --color-jis-brown-5: #ffc983;
+
+    /* Complimentary Colors */
+
+    --color-jis-scheme-1-a: #5a5b7d;
+    --color-jis-scheme-1-b: #303042;
+    --color-jis-scheme-1-c: #8c8dc2;
+    --color-jis-scheme-1-d: #9597cf;
+    --color-jis-scheme-1-e: #797ba8;
+
+    --color-jis-scheme-2-a: #499fe3;
+    --color-jis-scheme-2-b: #152f42;
+    --color-jis-scheme-2-c: #3e89c2;
+    --color-jis-scheme-2-d: #4292cf;
+    --color-jis-scheme-2-e: #3677a8;
+
+    --color-jis-scheme-3-a: #e6b283;
+    --color-jis-scheme-3-b: #423326;
+    --color-jis-scheme-3-c: #c29568;
+    --color-jis-scheme-3-d: #cf9f76;
+    --color-jis-scheme-3-e: #a88260;
+
+    --color-jis-scheme-4-a: #bd5327;
+    --color-jis-scheme-4-b: #421f0f;
+    --color-jis-scheme-4-c: #c25b2b;
+    --color-jis-scheme-4-d: #cf602d;
+    --color-jis-scheme-4-e: #a84f25;
+
+    --color-jis-scheme-5-a: #7d795a;
+    --color-jis-scheme-5-b: #424030;
+    --color-jis-scheme-5-c: #c2bb8c;
+    --color-jis-scheme-5-d: #cfc895;
+    --color-jis-scheme-5-e: #a8a379;
+
+    --color-jis-scheme-6-a: #e3b449;
+    --color-jis-scheme-6-b: #423515;
+    --color-jis-scheme-6-c: #c29a3e;
+    --color-jis-scheme-6-d: #cfa442;
+    --color-jis-scheme-6-e: #a88636;
+
+    --color-jis-scheme-7-a: #83bde6;
+    --color-jis-scheme-7-b: #263642;
+    --color-jis-scheme-7-c: #6e9fc2;
+    --color-jis-scheme-7-d: #76aacf;
+    --color-jis-scheme-7-e: #608aa8;
+
+    --color-jis-scheme-8-a: #279ab0;
+    --color-jis-scheme-8-b: #0f3a42;
+    --color-jis-scheme-8-c: #2ba9c2;
+    --color-jis-scheme-8-d: #2db4cf;
+    --color-jis-scheme-8-e: #2592a8;
+
+
+    /*----------------------------------------------
+      Categories                                ID
+    -----------------------------------------------
+
+    Agriculture                                 1
+    Commerce                                    2
+    Culture                                     3
+    Economic Growth & Job Creation              4
+    Education                                   5
+    Energy                                      6
+    Entertainment                               7
+    Finance & Public Service                    8
+    Foreign Affairs                             9
+    Gender Affairs                              10
+    Health & Wellness                           11
+    Industry                                    12
+    Information                                 13
+    Justice                                     14
+    Labour                                      15
+    Local Government                            16
+    National Security                           17
+    Office of the Prime Minister                18
+    Opposition                                  19
+    Science                                     20
+    Social Security                             21
+    Sport                                       22
+    Technology                                  23
+    Tourism                                     24
+    Transport                                   25
+    Youth                                       26
+    
+    ================================================*/
+
+    --color-jis-cat-1: var(--color-jis-yellow-1);
+    --color-jis-cat-2: var(--color-jis-blue-1);
+    --color-jis-cat-3: var(--color-jis-brown-1);
+    --color-jis-cat-4: var(--color-jis-scheme-1-b);
+    --color-jis-cat-5: var(--color-jis-scheme-2-b);
+    --color-jis-cat-6: var(--color-jis-scheme-3-b);
+    --color-jis-cat-7: var(--color-jis-scheme-4-b);
+    --color-jis-cat-8: var(--color-jis-scheme-5-b);
+    --color-jis-cat-9: var(--color-jis-scheme-6-b);
+    --color-jis-cat-10: var(--color-jis-scheme-7-b);
+    --color-jis-cat-11: var(--color-jis-scheme-8-b);
+    --color-jis-cat-12: var(--color-jis-scheme-1-a);
+    --color-jis-cat-13: var(--color-jis-yellow-3);
+    --color-jis-cat-14: var(--color-jis-scheme-1-e);
+    --color-jis-cat-15: var(--color-jis-scheme-2-a);
+    --color-jis-cat-16: var(--color-jis-scheme-2-e);
+    --color-jis-cat-17: var(--color-jis-scheme-3-a);
+    --color-jis-cat-18: var(--color-jis-scheme-3-e);
+    --color-jis-cat-19: var(--color-jis-scheme-4-a);
+    --color-jis-cat-20: var(--color-jis-yellow-2);
+    --color-jis-cat-21: var(--color-jis-scheme-4-e);
+    --color-jis-cat-22: var(--color-jis-scheme-5-a);
+    --color-jis-cat-23: var(--color-jis-scheme-5-e);
+    --color-jis-cat-24: var(--color-jis-scheme-6-a);
+    --color-jis-cat-25: var(--color-jis-scheme-6-e);
+    --color-jis-cat-26: var(--color-jis-scheme-7-e);
+
+
+    background-color: var(--color-jis-cream-white);
+    -webkit-font-smoothing: antialiased;
+    --color-story-title: #333;
+
+    /* Fonts */
+    --font-jis-flex-base: 0.625vw;
+    --font-jis-basefont: 1rem;
+    --font-jis-small-text: clamp(0.75rem, 0.546vw, 0.85rem);
+    --font-jis-large-txt: clamp(2rem, 1.875vw, 3rem);
+    --font-jis-x-large-txt: clamp(4rem, 3.75vw, 6rem);
+    --font-jis-ceilfont: calc(var(--font-jis-basefont) * 1.96);
+    --font-jis-body-text: clamp(var(--font-jis-basefont), calc(var(--font-jis-flex-base) * 1.2), 1.125rem);
+    --font-jis-header: clamp(calc(var(--font-jis-basefont) * 1.3), 0.9375vw, var(--font-jis-ceilfont));
+    --font-jis-sub-header: clamp(calc(var(--font-jis-basefont) * 1.125), 0.8125vw, 1.5rem);
+    --font-jis-list-item: clamp(1rem, 0.7vw, 1.3rem);
+
+    --font-jis-fm-main: merriweatherlight;
+    --font-jis-fm-secondary: Helvetica Neue, Helvetica, Arial, sans-serif;
+
+    --layer-index-top: 13333333;
+    --layer-index-mid: 13333;
+    --layer-index-bottom: 133;
+
+}
+
+figure, canvas{
+    margin: 0;
+    padding: 0;
+}
+
+a{
+  text-decoration: none;
+  color: var(--color-story-title);
+}
+
+a:hover{
+  text-decoration: underline;
+  color: var(--color-jis-black);
+}
+
+html, body{
+  height: 100%;
+  font-family: var(--font-jis-fm-main);
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+  padding-top:  3.7rem;
+}
+
+.jis-sticky-footer-content-wrap{
+  flex: 1 0 auto;
+}
+
+
+/* 
+===============================================
+ Reusable Classes
+-----------------------------------------------
+***********************************************
+*/
+
+.jis-hide-remove-display{
+  display: none;
+}
+
+
+
+/* = News List: START
+------------------------------------------------------------------------------------------------------
+usage:
+ <ul class="featured-list jis-news-list">
+      <li>
+        <span class="news-list-category">[category]</span>
+        <span class="news-list-date">[date]</span>
+        <a href="#">[story title]</a>
+        <div class="story-credit">
+          By:&nbsp;
+          <span class="story-author-name">
+            [author]
+          </span>
+        </div>
+      </li>
+      ...
+  </ul>
+-----------------------------------------------------------------------------------------------------*/
+
+.jis-news-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 20px 0;
+}
+
+.jis-news-list li {
+  padding: 0.85rem;
+  border-bottom: 1px solid #e2d9b8;
+  border-top: 1px solid rgba(255, 255, 255, 1);
+}
+
+.jis-news-list li:last-child {
+  border-bottom: none;
+}
+
+.jis-news-list li:first-child {
+  border-top: none;
+}
+
+.jis-news-list .news-list-date {
+  display: inline-block;
+  color: var(--color-jis-yellow-1);
+  text-transform: capitalize;
+  font-family: var(--font-jis-fm-secondary);
+  font-size: var(--font-jis-small-text);
+  line-height: calc(var(--font-jis-small-text) * 1.5);
+  margin-bottom: 0.5rem;
+}
+
+.jis-news-list .news-list-category {
+  display: inline-block;
+  margin-right: .5rem;
+  font-family: var(--font-jis-fm-secondary);
+  font-size: var(--font-jis-small-text);
+  line-height: calc(var(--font-jis-small-text) * 1.5);
+  background-color: var(--color-jis-yellow-1);
+  padding: .15% .5%;
+  color: var(--color-jis-cream-white);
+  border-radius: 3px;
+}
+
+.jis-news-list li a {
+  color: var(--color-story-title);
+  text-decoration: none;
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: var(--font-jis-list-item);
+  line-height: calc(var(--font-jis-list-item) * 1.5);
+}
+
+.jis-news-list li a:hover {
+  color: var(--color-jis-black);
+  text-decoration: underline;
+}
+
+.jis-news-list .story-credit {
+  color: var(--color-jis-yellow-1);
+  font-size: 0.85rem;
+}
+
+.jis-news-list .story-author-name {
+  text-transform: capitalize;
+}
+
+/* = News List: END
+------------------------------------------------------------------------------------------------*/
+
+
+/* = Featured Image: START
+---------------------------------------------------------------------------------------------------
+usage: 
+
+// special note: Image tag opacity will be set to 0, make sure inline background url style is set 
+or image will be blank
+
+<a class="featured-image-link" href="[link address]" style="background-image: url('[img url]');">
+  <figure class="primary-featured-image image-with-tag">
+    <img
+      src="[img url]"
+      alt=""
+    />
+    <figcaption class="image-caption">
+      [img caption]
+    </figcaption>
+    <div class="image-border-tag">
+      <div class="image-cat-tag">[category]</div>
+    </div>
+  </figure>
+</a>
+-------------------------------------------------------------------------------------------------*/
+
+.featured-image-link {
+  display: flex;
+  background-origin: border-box;
+  background-position: center center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  transition: all 3s ease-out;
+  overflow: hidden;
+}
+
+.featured-image-link:hover {
+background-size: 105%;
+}
+
+.featured-image-link:hover .image-border-tag,
+.featured-image-link:hover .image-cat-tag {
+  background-color: var(--color-jis-yellow-1);
+}
+
+.featured-image-link .image-with-tag {
+  position: relative;
+  width: 100%;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.featured-image-link .image-with-tag img {
+  object-fit: cover;
+  max-width: 100%;
+  opacity: 0;
+}
+
+.featured-image-link .image-caption {
+  display: block;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.75);
+  bottom: 0;
+  left: 0;
+  color: var(--color-jis-cream-white);
+  padding: 1.3% 1.3% 4% 23%;
+  transform: translateY(200px);
+  transition: all 1.3s ease-in;
+}
+
+.featured-image-link:hover .image-caption {
+  transform: translateY(0);
+}
+
+.featured-image-link .image-border-tag {
+  width: 100%;
+  height: 5px;
+  background-color: var(--color-jis-yellow-1);
+  position: absolute;
+  bottom: 0px;
+  transition: all 1s ease-out;
+}
+
+.featured-image-link .image-cat-tag {
+  position: absolute;
+  background-color: var(--color-jis-yellow-1);
+  padding: 5px 15px;
+  color: #fff;
+  bottom: 0;
+  font-family: var(--font-jis-fm-secondary);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: var(--font-jis-small-text);
+  line-height: calc(var(--font-jis-small-text) * 1.5); 
+  transition: all 1s ease-out;
+}
+
+.featured-image-link .image-caption.no-caption {
+  display: none;
+}
+
+/* = Featured Image: END
+----------------------------------------------------------------------------------------------*/
+
+
+/* = Live Icon: START
+----------------------------------------------
+usage: //no content
+
+  <span class="jis-live-icon">
+    <i></i>
+  </span>   
+
+---------------------------------------------*/
+
+/* Animated Icon */
+
+.jis-live-icon{
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid red;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  padding: 1px;
+  animation-name: pulsate-in;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  transform-origin: center;
+  position: absolute;
+  top: -3px;
+  right: 0;
+}
+
+.jis-live-icon i{
+  display: inline-block;
+  width:10px;
+  height: 10px;
+  margin: 0;
+  padding: 0;
+  background-color: red;
+  border-radius: 50%;
+  transition: all 1s ease-in;
+  animation-name: pulsate;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  transform-origin: center;
+}
+
+
+/* Animations 
+------------------------------ */
+
+@keyframes pulsate{
+  from{
+    transform: scale(0.5);
+  }
+  to{
+    transform: scale(1);
+  }
+}
+
+@keyframes pulsate-in{
+  from{
+    transform: scale(1);
+    opacity: 1;
+  }
+  to{
+    transform: scale(0.5);
+    opacity: .5;
+  }
+}
+
+/* = Live Icon: END
+----------------------------------------*/
+
+
+/* = Small Radio Player: START
+----------------------------------------------------------------------------------------------------
+usage: 
+
+<div class="jis-small-radio-player">
+    <button class="jis-play-story-icon">
+        <svg class="jis-play-icon-svg" version="1.1" id="play-icon" x="0px" y="0px"
+        viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+        <circle class="ring" cx="25.29" cy="25.04" r="24.02"/>
+        <polygon class="triangle" points="35.64,25.04 17.78,14.73 17.78,35.35 "/>
+        </svg>
+        <span>[button label]</span>
+    </button>
+</div>
+
+---------------------------------------------------------------------------------------------------*/
+
+.jis-small-radio-player{
+  justify-self: left;
+}
+
+.jis-play-story-icon{
+  font-size: var(--font-jis-small-text);
+  color: var(--color-jis-yellow-1);
+  border: none;
+  background: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.jis-small-radio-player .jis-play-story-icon svg{
+  margin-right: .5rem;
+}
+
+.jis-small-radio-player .jis-play-story-icon .jis-play-icon-svg .ring{
+  fill: rgba(129, 116, 0, 0.37);
+  stroke: rgba(129, 116, 0, 0.7);
+}
+
+.jis-small-radio-player .jis-play-story-icon:hover .jis-play-icon-svg .ring{
+  fill: rgba(129, 116, 0, .85);
+}
+
+.jis-small-radio-player .jis-play-story-icon:hover{
+  color: rgba(129, 116, 0, .85);
+}
+
+/* = Small Radio Player: END
+------------------------------------------------------------------------------------------------*/
+
+
+/* = Full Width Ad Area: START
+--------------------------------------------------------------------
+usage: 
+<div class="jis-full-width-ad-area"> 
+    <!-- Ad Here -->
+    <span class="jis-this-is-an-advertisement">Advertisement</div>
+</div>
+
+--------------------------------------------------------------------*/
+
+
+.jis-full-width-ad-area{
+  border-bottom: 5px solid #fff;
+  padding: 3rem 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  background-color: #eee;
+}
+
+.jis-full-width-ad-area span{
+  font-family: var(--font-jis-fm-secondary);
+  color: #666;
+  font-size: var(--font-jis-small-text);
+}
+
+/* = Full Width Ad Area: END
+--------------------------------------------------------------------*/
+
+
+/* = Inline Image With Caption: START
+------------------------------------------------------------------------------------------------
+usage: 
+<figure class="jis-inline-img-with-caption">
+    <img src="[img url]" alt="[img description]" />
+    <figcaption>
+      [Caption]
+    </figcaption>
+</figure>
+
+----------------------------------------------------------------------------------------------*/
+
+.jis-inline-img-with-caption{
+  width: 100%;
+}
+
+.jis-inline-img-with-caption img{
+  max-width: 100%;
+  width: 100%;
+}
+
+.jis-inline-img-with-caption figcaption{
+  font-family: var(--font-jis-fm-secondary);
+  margin: 3% 0;
+  padding-top: 1.3%;
+  color: var(--color-jis-yellow-1);
+  font-size: var(--font-jis-small-text);
+  line-height: calc(var(--font-jis-small-text) * 1.5);
+  border-top: 1px solid var(--color-jis-yellow-1);
+}
+
+/* = Inline Image With Caption: END
+------------------------------------------------------------------------------------------------*/
+
+/* = Secondary Story Image Link: START
+------------------------------------------------------------------------------------------------
+usage: 
+<a class="jis-secondary-story-img-link" href="[link]">
+  <figure>
+    <img
+      src="[img url]"
+      alt="[img description]"
+    />
+    <figcaption class="story-image-caption">
+      [Caption]
+    </figcaption>
+  </figure>
+  <h2 class="story-feature-title">[Title]</h2>
+</a>
+
+------------------------------------------------------------------------------------------------*/
+
+.jis-secondary-story-img-link {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-decoration: none;
+  outline: none;
+  color: var(--color-story-title);
+}
+
+.jis-secondary-story-img-link figure {
+  margin: 0;
+  padding: 0;
+  height: 14.5rem;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+}
+
+.jis-secondary-story-img-link figure img {
+  max-width: 100%;
+  object-fit: cover;
+  flex: 1 1 100%;
+  border-bottom: 3px solid var(--color-jis-yellow-1);
+}
+
+.story-feature-title {
+  font-size: var(--font-jis-body-text);
+  line-height: calc(var(--font-jis-body-text) * 1.5);
+  color: var(--color-jis-black);
+}
+
+.story-image-caption {
+  display: none;
+}
+
+.jis-secondary-story-img-link .story-credit{
+  text-decoration: none;
+  font-size: var(--font-jis-small-text);
+  line-height: calc(var(--font-jis-small-text) * 1.5);
+}
+
+/* = Secondary Story Image Link: END
+------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+/* = Animated Background Image Link with Feature Hilights: START
+-------------------------------------------------------------------------------------------------
+usage:
+
+// special note: Image tag opacity will be set to 0, make sure inline background url style is set 
+or image will be blank
+
+<a href="#" class="jis-animated-sc-img-link" style="background-image: url('[img url]')">
+    <img src="[img url]" alt="" />
+    <div class="item-overlay">
+        <h3>[link text]</h3>
+        <span>[highlights]</span>
+    </div>
+</a>
+------------------------------------------------------------------------------------------------*/
+
+
+.jis-animated-sc-img-link{
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-origin: content-box;
+  background-size: 100%;
+  border-bottom: 5px solid var(--color-jis-yellow-1);
+  transition: background-size 3s ease-out;
+}
+
+.jis-animated-sc-img-link:hover{
+  background-size: 113%;
+  background-position: center;
+}
+
+.jis-animated-sc-img-link img{
+  width: 100%;
+  max-width: 100%;
+  opacity: 0;
+}
+
+.jis-animated-sc-img-link .item-overlay{
+  position: absolute;
+  background-color: rgba(0, 0, 0, .5);
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  display: flex;
+}
+
+.jis-animated-sc-img-link .item-overlay h3{
+  background-color: var(--color-jis-yellow-1);
+  color: #fff;
+  margin: 0;
+  padding: 1% 3%;
+  font-family: var(--font-jis-fm-secondary);
+  font-size: var(--font-jis-body-text);
+  font-weight: bold;
+  line-height: calc(var(--font-jis-small-text) * 1.3); 
+  flex-basis: auto;
+}
+
+.jis-animated-sc-img-link .item-overlay span{
+  color: var(--color-jis-cream-white);
+  font-family: var(--font-jis-fm-secondary);
+  font-size: var(--font-jis-small-text);
+  justify-self: right;
+  align-self: center;
+  text-align: right;
+  flex: 1 1 auto;
+  padding-right: 3%;
+}
+
+/* = Animated Background Image Link with Feature Hilights: END
+------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+/*=== Navigation Bar
+----------------------------------------*/
+
+.jis-menu-bar{
+    width: 100%;
+    height: 3.7rem;
+    background-color: #000;
+    display: grid;
+    grid-template-columns: 30% 1fr 20% 10%;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: var(--layer-index-top);
+}
+
+.jis-branding{
+    justify-self: center;
+}
+
+.jis-weather-widget{
+    display: flex;
+    color: var(--color-jis-cream-white);
+    font-family: var(--font-jis-fm-secondary);
+    gap:1rem;
+    align-items: center;
+}
+
+.jis-weather-widget .weather-icon{
+  width: 40px;
+}
+
+.jis-weather-widget .weather-icon img{
+  max-width: 100%;
+}
+
+.nav-button-icon{
+    width: 1.5rem;
+    position: relative;
+    margin-left: 20%;
+}
+
+.nav-button-icon .bars{
+    background-color: #fff;
+    display: block;
+    height: 3px;
+    width: 100%;
+    margin-bottom: 5px;
+    transition: all 500ms ease-in-out;
+}
+
+.jis-nav-button.active .bar:nth-child(2){
+  transform: translateX(-30vw);
+}
+
+.jis-nav-button.active .bar:nth-child(1){
+  transform: rotate(45deg);
+  transform-origin: left;
+}
+.jis-nav-button.active .bar:nth-child(3){
+  transform: rotate(-45deg);
+  transform-origin: left;
+}
+
+.nav-button-icon .jis-nav-btn{
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0;
+  transition: all 500ms ease-in-out;
+}
+
+.jis-nav-button.active .bar:nth-child(2){
+  transform: translateX(-30vw);
+}
+
+.jis-nav-button.active .bar:nth-child(1){
+  transform: rotate(45deg);
+  transform-origin: left;
+}
+.jis-nav-button.active .bar:nth-child(3){
+  transform: rotate(-45deg);
+  transform-origin: left;
+}
+
+
+.jis-search-icon{
+    justify-self: end;
+    margin-right: 40%;
+}
+
+.jis-search-btn{
+    border: 0;
+    outline: 0;
+    width: 31px;
+    height: 23px;
+    margin-top: 5px;
+    background-image: url('../img/search-icon.png');
+    background-repeat: no-repeat;
+    background-color: transparent;
+}
+
+.jis-nav-container{
+  position: absolute;
+  background-color: rgba(0,0,0,0.95);
+  width: 30vw;
+  height: 100vh;
+  top: 2.35rem;
+  left: -10vw;
+  z-index: var(--layer-index-top);
+  transition: all 600ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: fixed;
+}
+
+.jis-nav-container.open{
+  transform: translateX(0);
+}
+
+.jis-nav-container.closed{
+  transform: translateX(-30vw);
+}
+
+.current-page-title{
+  position: absolute;
+  top: .025rem;
+  left: 2.5rem;
+  text-transform: uppercase;
+  font-size: var(--font-jis-sub-header);
+  font-family: var(--font-jis-fm-secondary);
+  color: var(--color-jis-yellow-5);
+}
+
+/* Navigation
+----------------------------------------------- */
+
+.jis-nav-container-inner{
+  padding: 1.3% 0;
+  list-style-type: none;
+  margin: 0;
+}
+
+.jis-nav-container-inner li a{
+  color: #fff;
+  padding: 1rem 0;
+  display: block;
+  font-size: var(--font-jis-sub-header);
+  font-family: var(--font-jis-fm-secondary);
+  text-align: right;
+  padding-right: 3rem;
+  transition: all 300ms ease;
+}
+
+.jis-nav-container-inner li a:hover{
+  text-decoration: none;
+  color: var(--color-jis-brown-5);
+  border-right: 3px solid var(--color-jis-brown-5);
+  border-top: 1px solid rgba(255, 201, 131, .013);
+  border-bottom: 1px solid rgba(255, 201, 131, .013);
+  background-color: rgba(255, 201, 131, .113);
+}
+
+@keyframes slide-in {
+  from{
+    transform: translateX(-30vw);
+  }
+
+  to{
+    transform: translateX(0)
+  }
+}
+
+@keyframes slide-out {
+  from{
+    transform: translateX(0);
+  }
+
+  to{
+    transform: translateX(-30vw)
+  }
+}
+
+/* Media Queries
+------------------------------ */
+
+@media screen and (max-width: 800px) {
+  .jis-weather-widget{
+    display: none;
+  }
+
+  .jis-search-icon{
+    margin-right: 0;
+}
+
+}
+
+@media screen and (max-width: 600px) {
+  .jis-nav-container{
+    width: 50vw;
+  }
+
+}
+
+/* Search Container
+-------------------===========================----------- */
+
+.jis-search-form-container{
+  position:absolute;
+  z-index: calc(var(--layer-index-top) + 10);
+  background-color: rgba(0,0,0,0.95);
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+}
+
+.jis-close-search-btn{
+  position: absolute;
+  top: 0;
+}
+
+.sr-only{
+  display: none;
+}
+
+.search-form.form-inline{
+  width: 50vw;
+  background-color: rgba(255, 255, 255, 0.13);
+  position: relative;
+  border-bottom: 3px solid #666;
+}
+
+.jis-search-form-container input[type="search"]{
+  width: 100%;
+  background: transparent;
+  padding: 1rem;
+  font-size: 2rem;
+  border: none;
+  color: #ccc;
+  outline: none;
+  text-align: center;
+}
+
+.search-submit.btn{
+  position: absolute;
+  top: 50%;
+  height: 30px;
+  margin-top: -15px;
+  right: .5rem;
+  border: none;
+  background: transparent;
+  color: #817400;
+  font-size: 1.3rem;
+}
+
+.jis-close-search-btn{
+    position: absolute;
+    top: 3rem;
+    right:  3rem;
+    background: transparent;
+    border: none;
+    color:  #fff;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    width: 40px;
+    height: 40px;
+    line-height: 20px;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+
+/*=== Happening now
+----------------------------------------*/
+
+.jis-happening-now-feature{
+    width: clamp(20rem, 80vw, 100rem);
+    position: relative;
+    margin: 0 auto;
+    background: #fff;
+    margin-top: 3rem;
+    box-shadow: 1px 2px 6px rgba(169, 116, 0, .13);
+}
+
+.jis-happening-now-tag{
+    background-color: #000;
+    padding: .5rem;
+    font-family: var(--font-jis-fm-secondary);
+    color: #fff;
+    font-size: var(--font-jis-small-text);
+    display: inline-block;
+    position: absolute;
+    left: -5px;
+    top: -2rem;
+}
+
+.jis-happening-now-content-wrapper{
+    display: flex;
+}
+
+.jis-happening-now-content{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;  
+}
+
+.jis-happening-now-content-text{
+  font-size: var(--font-jis-body-text);
+  line-height: calc(var(--font-jis-body-text) * 1.3);
+}
+
+.hn-item{
+    border-right: 1px solid rgba(0, 0, 0, .13);
+}
+
+.hn-item:last-child{
+    border: none;
+}
+
+.jis-happening-now-content-title{
+    font-family: var(--font-jis-fm-secondary);
+    font-size: var(--font-jis-small-text);
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    position: relative;
+}
+
+.jis-happening-now-content-category{
+    font-style: normal;
+    color: var(--color-jis-yellow-1);
+    font-weight: 400;
+}
+
+.jis-happening-now-content-text{
+    color: var(--color-story-title);
+}
+
+.jis-happening-now-content-link{
+    text-decoration: none;
+    font-weight: 600;
+    text-align: right;
+    color: var(--color-jis-black);
+    font-family: var(--font-jis-fm-secondary);
+    font-size: var(--font-jis-small-text);
+}
+
+.jis-happening-now-content-link:hover{
+  text-decoration: underline;
+}
+
+.jis-happening-now-content-with-image{
+    display: flex;
+    gap: .7rem;
+    padding: 0;
+}
+
+.jis-happening-now-content-with-image .content-wrapper{
+    padding: 1rem 1rem 0 0;
+    display: flex;
+    flex: 1 1 58%;
+    flex-direction: column;
+}
+
+.jis-happening-now-image{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    overflow: hidden;
+}
+
+
+/* Media Queries
+------------------------------ */
+
+@media screen and (max-width: 1200px) {
+  .jis-happening-now-content-with-image figure{
+    display: none;
+  }
+
+  .jis-happening-now-content-with-image .content-wrapper{
+    padding: 1rem;
+    display: flex;
+    flex: 1 1 100%;
+    flex-direction: column; 
+  }
+
+}
+
+@media screen and (max-width: 900px) {
+  .jis-happening-now-feature{
+    display: none;
+  }
+}
+
+
+
+/* sections */
+.jis-section-container{
+    width: clamp(25rem, 80vw, 100rem);
+    margin: 0 auto;
+}
+
+.jis-section-title{
+    font-family: var(--font-jis-fm-secondary);
+    border-bottom: 1px solid #333;
+    font-size: var(--font-jis-sub-header);
+    margin-top: 3rem;
+    font-weight: 600;
+    padding-bottom: .5rem;
+}
+
+.jis-news{
+    color: var(--color-jis-yellow-1);
+    border-color: var(--color-jis-yellow-1);
+}
+
+.jis-video{
+    color: var(--color-jis-cream-white);
+    border-color: var(--color-jis-cream-white);
+}
+
+
+h1,
+h2,
+p {
+  color: var(--color-story-title);
+  font-weight: normal;
+}
+
+.jis-news-features{
+  font-family: Merriweather;
+  color: var(--color-jis-black);
+  display: flex;
+  flex-direction: row;
+  gap: 1%;
+}
+
+/* .primary-feature{
+    padding-right: 1%;
+} */
+
+.primary-feature,
+.news-aside {
+  flex: 1 1 49.5%;
+}
+
+
+
+
+/* ==== Featured Story
+---------------------------------- */
+
+  .jis-news-features .story-credit {
+    color: var(--color-jis-yellow-1);
+    font-size: var(--font-jis-small-text);
+  }
+  .jis-news-features .story-author-name {
+    color: var(--color-jis-black);
+  }
+  .jis-news-features .date-of-story {
+    text-transform: capitalize;
+  }
+  .jis-news-features .featured-story-title {
+    font-size: var(--font-jis-header);
+    line-height: calc(var(--font-jis-header) * 1.5);
+    padding: 1rem 0;
+  }
+
+  .jis-news-features .featured-story-title a{
+    color: var(--color-jis-black);
+  }
+
+  .jis-news-features .featured-story-title a:hover{
+    color: var(--color-jis-black);
+    text-decoration: underline;
+  }
+
+  .jis-news-features .featured-excerpt {
+    font-size: var(--font-jis-body-text);
+    line-height: calc(var(--font-jis-body-text) * 1.5);
+    color: var(--color-story-title);
+    padding: 1rem 0;
+  }
+  .jis-news-features .read-more {
+    display: none;
+  }
+  
+  /* Featured Story
+  ---------------------------------- */
+  
+  .news-aside {
+    border-left: 1px solid var(--color-jis-yellow-2);
+    display: flex;
+    flex-direction: column;
+    padding-left: 1%;
+  }
+  
+  .secondary-feature {
+    display: flex;
+    width: 100%;
+    gap: 2%;
+  }
+
+
+  /*=== Secondary Feature 
+  ---------------------------------------------------*/
+
+  .secondary-feature-item{
+    flex: 0 1 auto;
+  }
+ 
+
+   /* Media Queries
+------------------------------ */
+
+@media screen and (max-width: 1750px) {
+  .secondary-feature-item figure {
+    height: 13rem;
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .secondary-feature-item figure {
+    height: 10rem;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .jis-news-features {
+    flex-direction: column;
+  }
+  .news-aside{
+    border: none;
+  }
+  .primary-feature{
+    padding-bottom: 2%;
+  }
+}
+
+
+  /*=== News List 
+  ------------------------------------------------*/
+
+  .news-aside .jis-news-list{
+    border-top: 1px solid var(--color-jis-yellow-1);
+    margin-top: 2rem;
+  }
+  
+
+  /*=== Video Section
+  ------------------------------------------------*/
+
+  .full-width-wrapper{
+    width: 100%;
+    padding: 2rem 0 4rem 0;
+  }
+
+  .jis-video-title{
+    color: var(--color-jis-cream-white);
+    border-color: var(--color-jis-blue-3);
+  }
+  
+  .full-width-wrapper.jis-video-wrapper{
+      background-color: #000;
+  }
+
+  .jis-video-feature{
+    display: flex;
+    gap: 1%;
+  }
+
+  .jis-primary-video-home{
+    flex: 1 1 60%;
+  }
+
+  .jis-primary-video-home figure{
+    position: relative;
+    border-bottom: 8px solid var(--color-jis-blue-3);
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    background-position: center center;
+    background-size: 100%;
+    min-height: 13rem;
+    transition: all 3s ease-in;
+  }
+
+  .jis-primary-video-home figure .image-cat-tag{
+    background-color: var(--color-jis-blue-3);
+    color: var(--color-jis-cream-white);
+    padding-top: 8px;
+    z-index: var(--layer-index-bottom);
+  }
+
+  .jis-primary-video-home figure img{
+    opacity: 0;
+  }
+
+  .jis-primary-video-home figure:hover{
+    background-size: 105%;
+    border-color: var(--color-jis-blue-4);
+  }
+
+  .jis-primary-video-home figure:hover .image-cat-tag{
+    background-color: var(--color-jis-blue-4);
+  }
+
+  .jis-primary-video-home figure:hover .jis-primary-video-overlay .description-text{
+    border-color: var(--color-jis-blue-4);
+  }
+
+  .jis-primary-video-home figure{
+    position: relative;
+  }
+
+  .jis-primary-video-overlay{
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 59%, rgba(0,0,0,0) 100%);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: var(--layer-index-bottom);
+    width: 100%;
+    padding: 1.5rem 0;
+  }
+
+  .jis-primary-video-overlay .description-text{
+    margin: 2rem 2rem 0 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-jis-blue-3);
+    display: block;
+  }
+
+  .jis-primary-video-description{
+    display: block;
+  }
+
+  .jis-primary-video-overlay .description-text span{
+    text-align: right;
+  }
+
+ .jis-primary-video-description{
+   color: var(--color-jis-cream-white);
+   font-size: var(--font-jis-sub-header);
+   line-height: calc(var(--font-jis-sub-header) * 1.5);
+ }
+
+ .watch-video-button-wrapper{
+   text-align: right;
+   display: flex;
+   justify-content: right;
+ }
+
+ .jis-primary-video-overlay .description-text .jis-play-icon span{
+   display: inline-block;
+   font-family: var(--font-jis-fm-secondary);
+   font-weight: bold;
+   text-transform: uppercase;
+   font-size: var(--font-jis-small-text);
+   line-height: calc(var(--font-jis-small-text) * 1.5);
+   color: var(--color-jis-yellow-5);
+   transition: all 1s ease-in-out;
+ }
+
+
+ .jis-play-icon{
+  background: transparent;
+  border: none;
+  color: #fff;
+  align-items: center;
+  justify-content: right;
+  display: grid;
+  gap: .5rem;
+  grid-template-columns: auto 30px;
+  cursor: pointer;
+ 
+ }
+
+ .jis-play-icon:hover span{
+   transform: translateX(5px);
+ }
+
+ .jis-play-icon:hover .jis-play-icon-svg .triangle{
+  fill: var(--color-jis-yellow-5);
+ }
+
+ .jis-play-icon:hover .jis-play-icon-svg .ring{
+  fill:rgba(46,49,146,0.13);
+  stroke:var(--color-jis-yellow-4-blue-5);
+  stroke-miterlimit:10;
+ }
+
+ .jis-play-icon-svg{
+   width: 30px;
+   height: 30px;
+   grid-column: 2/3;
+ }
+
+ .jis-play-icon-svg .ring{
+   fill:rgba(255,255,255,0.13);
+   stroke:var(--color-jis-blue-3);
+   stroke-miterlimit:10;
+  }
+
+ .jis-play-icon-svg .triangle{
+   fill:#FFFFFF;
+  }
+
+  .jis-primary-video-home img{
+    max-width: 100%;
+  }
+
+  .jis-secondary-video-home{
+    flex: 1 1 39%;
+    border-left: 1px solid rgba(255,255,255,0.13)
+  }
+
+  .jis-video-playlist{
+    margin: 0 0 0 2%;
+    padding: 0;
+  }
+
+  .jis-video-playlist li{
+    padding: 0.85rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.13);
+  }
+
+  .jis-video-playlist li:first-child{
+    padding-top: 0; 
+  }
+
+  .jis-video-playlist li:last-child{
+    border-bottom: none; 
+  }
+
+  .jis-video-playlist-link{
+    text-decoration: none;
+    color: var(--color-jis-cream-white);
+    display: flex;
+    font-weight: normal;
+  }
+
+  .jis-video-playlist-link:hover{
+    color: #fff;
+  }
+
+  .jis-video-playlist-link .video-metadata{
+    padding: clamp(.5rem, .5vw, 1rem);
+  }
+
+  .jis-video-playlist-thumb{
+    flex: 1 1 40%;
+  }
+
+  .jis-video-playlist-thumb img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .list-item-video-duration,
+  .list-item-video-views{
+    font-family: var(--font-jis-fm-secondary);
+    font-size: var(--font-jis-small-text);
+    line-height: calc(var(--font-jis-small-text) * 1.5);
+    display: inline-block;
+    background-color: var(--color-jis-blue-3);
+    padding: .35rem;
+    border-radius: 5px;
+    color: #fff;
+  }
+
+  .list-item-description{
+    display: block;
+    padding: 0.5rem 0;
+    font-size: var(--font-jis-list-item);
+    line-height: calc(var(--font-jis-list-item) * 1.5);
+  }
+
+    /* Media Queries
+  ------------------------------ */
+
+  @media screen and (max-width: 1500px) {
+    .jis-video-playlist-thumb{
+      flex: 1 1 35%;
+      height: 5rem;
+    }
+
+    .list-item-video-duration,
+    .list-item-video-views{
+      padding: .25rem;
+      font-size: calc(var(--font-jis-small-text) * 0.85);
+    }
+  }
+
+  @media screen and (max-width: 1280px) {
+    .jis-video-feature{
+      flex-direction: column;
+    }
+
+    .jis-video-playlist-thumb{
+      flex: 0 1 25%;
+    }
+
+    .jis-secondary-video-home{
+      padding-top: 4%;
+      border: none;
+    }
+
+    .jis-primary-video-overlay .description-text{
+      border-top: none;
+    }
+  }
+
+
+  /*=== Information Section
+  ------------------------------------------------------*/
+
+  .full-width-wrapper.wrapper-with-white-bg{
+    background-color: #fff;
+  }
+
+  .jis-information-title{
+    color: var(--color-jis-brown-3);
+    border-color: var(--color-jis-brown-3);
+  }
+
+  .jis-information-feature{
+    display: flex;
+  }
+
+  .jis-about-jamaica-container{
+    flex: 1 1 60%;
+    display: flex;
+  }
+
+  .jis-about-jamaica-container .geographical-details,
+  .jis-about-jamaica-container .government-details{
+    flex: 1 1 50%;
+  }
+
+  .jis-about-jamaica-container .geographical-details{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .jis-about-jamaica-container .jamaica-map{
+    justify-self: center;
+    position: relative;
+  }
+
+  .jis-about-jamaica-container .jamaica-map figcaption{
+    position: absolute;
+    bottom: 1.5rem;
+    right: 2rem;
+  }
+
+  .jis-about-jamaica-container .jamaica-map figcaption a{
+    font-weight: bold;
+    color: var(--color-jis-yellow-1);
+    text-decoration: none;
+    font-family: var(--font-jis-fm-secondary);
+    font-size: var(--font-jis-small-text);
+    line-height: calc(var(--font-jis-body-text) * 1.5);
+  }
+
+  .jis-about-jamaica-container .jamaica-map img{
+    width: 94%;
+    margin: 1rem 3%;
+  }
+
+  .jis-about-jamaica-container .government-details{
+    border-left: 1px solid rgba(168, 104, 20, 0.35);
+    padding-left: 3%;
+  }
+
+  .jis-word-of-the-day-container{
+    flex: 1 1 40%;
+  }
+
+  .jis-information-geographical-facts{
+    list-style-type: none;
+    margin: 0;
+    padding: 0 4% 0 0;
+  }
+
+  .jis-information-geographical-facts .label{
+    font-weight: bold;
+    color: var(--color-story-title);
+    font-size: var(--font-jis-body-text);
+    line-height: calc(var(--font-jis-body-text) * 1.3);
+  }
+
+  .jis-information-geographical-facts .detail{
+    justify-self: right;
+    color: var(--color-story-title);
+    font-size: var(--font-jis-body-text);
+    line-height: calc(var(--font-jis-body-text) * 1.3);
+    text-align: right;
+  }
+
+  .jis-information-geographical-facts li{
+    border-top: 1px solid rgba(168, 104, 20, 0.35);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-family: var(--font-jis-fm-secondary);
+    padding: 1rem 0;
+  }
+
+  .jis-home-head-of-government{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .5rem;
+    padding-bottom: 1rem;
+  }
+
+  .jis-home-head-of-government-title{
+    grid-column: 1/3;
+    font-family: var(--font-jis-fm-secondary);
+    font-size: var(--font-jis-sub-header);
+    line-height: calc(var(--font-jis-sub-header) * 1.5);
+    color: var(--color-jis-blue-3);
+    border-bottom: 1px solid rgba(168, 104, 20, 0.35);
+    padding-bottom: .5rem;
+    margin: .5rem 0;
+  }
+
+  .jis-head-of-government-personal-title{
+    font-family: var(--font-jis-fm-secondary);
+  }
+
+  .jis-head-of-government-personal-title h2{
+    color: var(--color-story-title);
+    margin: .35rem 0;
+    padding: 0;
+    text-transform: uppercase;
+    font-size: var(--font-jis-header);
+    line-height: calc(var(--font-jis-header) * 1.125);
+    font-weight: bold;
+  }
+
+  .jis-head-of-government-personal-title .title-prefix{
+    color: var(--color-jis-yellow-1);
+    font-size: var(--font-jis-small-text);
+    line-height: calc(var(--font-jis-small-text) * 1.125);
+  }
+
+  .jis-head-of-government-personal-title .title-postfix{
+    color: var(--color-jis-yellow-1);
+    font-size: var(--font-jis-small-text);
+    line-height: calc(var(--font-jis-small-text) * 1.125);
+  } 
+
+  .jis-about-jamaica-container .government-details .jis-home-symbols{
+    border-top: 1px solid rgba(168, 104, 20, 0.135);
+    border-bottom: 1px solid rgba(168, 104, 20, 0.135);
+    padding: .35rem;
+    display: flex;
+  }
+
+  .jis-about-jamaica-container .government-details .jis-home-symbols .symbols{
+    flex: 1 1 50%;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    font-family: var(--font-jis-fm-secondary);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: var(--font-jis-body-text);
+    line-height: calc(var(--font-jis-body-text) * 1.3);
+    align-items: center;
+    color: var(--color-jis-black);
+  }
+
+  .jis-about-jamaica-container .government-details .jis-home-symbols .symbols figure{
+    width: 50px;
+    margin-right: .85rem;
+  }
+
+  .jis-quick-facts{
+    padding: 1rem 0;
+  }
+
+  .jis-about-jamaica-container .government-details .jis-quick-facts p{
+    font-size: var(--font-jis-body-text);
+    line-height: calc(var(--font-jis-body-text) * 1.5);
+  }
+
+  .jis-about-jamaica-container .government-details .jis-quick-facts h3{
+    font-family: var(--font-jis-fm-secondary);
+    font-size: var(--font-jis-sub-header);
+    line-height: calc(var(--font-jis-sub-header) * 1.5);
+    color: var(--color-jis-blue-3);
+  }
+
+  .jis-about-jamaica-container .government-details .jis-quick-facts a{
+    font-family: var(--font-jis-fm-secondary);
+    font-size: var(--font-jis-body-text);
+    line-height: calc(var(--font-jis-body-text) * 1.5);
+    color: var(--color-jis-yellow-1);
+    font-weight: bold;
+    float: right;
+  }
+
+  .jis-word-of-the-day-wrapper{
+    margin-left: 5%;
+    background-color: var(--color-jis-cream-white);
+    padding: 1.3rem;
+    margin-top: 2rem;
+    display: flex;
+  }
+
+  .jis-word-of-the-day{
+    background-color: #fff;
+    box-shadow: 1px 2px 6px rgba(169, 116, 0, .13);
+    padding: 1.3rem;
+    flex: 1 1 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(4, auto);
+  }
+
+  .jis-word-of-the-day h4{
+    grid-column: 1/4;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-jis-fm-secondary);
+    font-size: var(--font-jis-body-text);
+    line-height: calc(var(--font-jis-body-text) * 1.5);
+    color: var(--color-jis-yellow-1);
+  }
+
+  .jis-word-of-the-day .the-word{
+    grid-column: 1/4;
+    grid-row: 2/3;
+    justify-self: center;
+    padding: 3rem 0;
+  }
+
+  .jis-word-of-the-day .the-word a{
+    display: block;
+    font-size: var(--font-jis-x-large-txt);
+    line-height: calc(var(--font-jis-x-large-txt) * 1.125);
+    color: var(--color-jis-blue-1);
+  }
+
+  .jis-word-of-the-day-pronounce-text{
+    font-size: var(--font-jis-body-text);
+    line-height: calc(var(--font-jis-body-text) * 1.3);
+  }
+
+  .jis-word-of-the-day-definition{
+    grid-column: 1/4;
+    grid-row: 3/4;
+    justify-self: center;
+    font-size: var(--font-jis-body-text);
+    line-height: calc(var(--font-jis-body-text) * 1.3);
+  }
+
+  .jis-share-this{
+    grid-column: 3/4;
+    grid-row: 4/5;
+    justify-self: right;
+    background-color: transparent;
+    border: none;
+    width: 25px;
+  }
+
+  .jis-share-this svg{
+    width: 25px;
+    fill: var(--color-jis-blue-1);
+    stroke: var(--color-jis-blue-1);
+  }
+
+  .jis-social-media-links{
+    margin-left: 5%;
+    padding-top: 3rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    font-size: var(--font-jis-body-text);
+    line-height: calc(var(--font-jis-body-text) * 1.3);
+  }
+
+  .jis-social-media-links .social-media-icons{
+    list-style-type: none;
+    margin: 0;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-self: right;
+  }
+
+  .jis-social-media-links .social-media-icons li{
+    width: 15px;
+  }
+
+  .jis-social-media-links .social-media-icons li svg{
+    fill: var(--color-jis-blue-1);
+  }
+
+   /* Media Queries
+  ------------------------------ */
+
+  @media screen and (max-width: 1200px) {
+    .jis-information-feature{
+      flex-direction: column;
+    }
+    .jis-word-of-the-day .the-word a{
+      font-size: calc(var(--font-jis-basefont) * 6);
+    }
+
+    .jis-word-of-the-day-wrapper{
+      margin-left: 0;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    .jis-about-jamaica-container{
+      flex-direction: column;
+    }
+
+    .jis-about-jamaica-container .government-details{
+      border-left: none;
+      padding-left: 0;
+      margin-top: 4%;
+    }
+  }
+
+
+  /*=== Multimedia Section
+  ------------------------------------------------------*/
+
+  .jis-multimedia-title{
+    color: var(--color-jis-blue-4);
+    border-color: var(--color-jis-blue-4);
+  }
+
+  .jis-multimedia-feature{
+    display: flex;
+    gap: 1%;
+  }
+
+  .jis-photo-of-the-day-feature{
+    flex: 1 0 60%;
+  }
+
+  .jis-home-radio-featured{
+    flex: 1 1 38%;
+  }
+
+  /* Photo Card Component */
+  .jis-photo-card {
+    display: block;
+  }
+
+  .jis-photo-card:hover figure{
+    background-size: 105%;
+  }
+
+  .jis-photo-card figure{
+    position: relative;
+    background-origin: border-box;
+    background-position: center center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    transition: all 3s ease-out;
+    border-bottom: 8px solid var(--color-jis-blue-4);
+  }
+  
+  .jis-photo-card .photo-label,
+  .jis-photo-card figcaption{
+    position: absolute;
+    bottom: 0;
+  }
+
+  .jis-photo-card .photo-label{
+    left: 0;
+    z-index: var(--layer-index-bottom);
+    background-color: var(--color-jis-blue-4);
+    color: #fff;
+  }
+
+  .jis-photo-card .photo-label h3{
+    margin: 0;
+    padding: .5rem 1rem;
+    font-family: var(--font-jis-fm-secondary);
+    font-size: var(--font-jis-body-text);
+    line-height: calc(var(--font-jis-body-text) * 1.3);
+  }
+
+  .jis-photo-card figcaption{
+    background-color: rgba(0, 0, 0, .5);
+    color: var(--color-jis-cream-white);
+    font-size: var(--font-jis-body-text);
+    line-height: calc(var(--font-jis-body-text) * 1.5);
+    padding: 1.5rem 1rem 1.5rem 23%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .jis-photo-card figure img{
+    max-width: 100%;
+    opacity: 0;
+  }
+
+  /* end */
+
+  .jis-home-radio-featured{
+    border-left: 1px solid rgba(0, 0, 0, .13);
+    display: flex;
+  }
+
+  .jis-home-radio-featured-program{
+    padding: 0 2%;
+    flex: 1 1 50%;
+  }
+
+  .jis-home-radio-featured-program figure{
+    position: relative;
+  }
+
+  .jis-home-radio-featured-program figure .jis-play-icon{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .jis-home-radio-featured-program span,
+  .jis-home-radio-featured-program-list li span{
+    font-family: var(--font-jis-fm-secondary);
+    font-size: var(--font-jis-small-text);
+    line-height: calc(var(--font-jis-small-text) * 1.3);
+    color: var(--color-jis-yellow-1);
+  }
+
+  .jis-home-radio-featured-program h4{
+    padding: .35rem 0;
+    margin: 0;
+    font-weight: normal;
+    font-size: var(--font-jis-sub-header);
+    line-height: calc(var(--font-jis-sub-header) * 1.3);
+  }
+
+  .jis-home-radio-featured-program img{
+    max-width: 100%;
+  }
+
+  .jis-home-radio-featured-program-list{
+    flex: 1 0 50%;
+  }
+
+  .jis-home-radio-featured-program-list ul{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  .jis-home-radio-featured-program-list li{
+    border-bottom: 1px solid rgba(0, 0, 0, .13);
+    padding: .5rem;
+  }
+
+  .jis-home-radio-featured-program-list li:last-child{
+    border: none;
+  }
+
+  .jis-home-radio-featured-program-list li a{
+    display: block;
+    color: var(--color-story-title);
+    padding: .35rem 0;
+    font-size: var(--font-jis-list-item);
+    line-height: calc(var(--font-jis-list-item) * 1.5);
+  }
+
+  .jis-home-radio-featured-program-list .read-more-from-radio{
+    font-family: var(--font-jis-fm-secondary);
+    font-size: var(--font-jis-body-text);
+    line-height: calc(var(--font-jis-body-text) * 1.5);
+    color: var(--color-jis-blue-4);
+    font-weight: bold;
+    display: block;
+    text-align: right;
+    margin-top: 2rem;
+  }
+
+  /* Media Queries
+  ------------------------------ */
+
+  @media screen and (max-width: 1440px) {
+    .jis-home-radio-featured{
+      flex-direction: column;
+    }
+    .jis-home-radio-featured-program{
+      padding-bottom: 5%;;
+    }
+
+    .jis-home-radio-featured-program-list ul{
+      border-top: 1px solid var(--color-jis-blue-3);
+    }
+
+    .jis-home-radio-featured-program figure .jis-play-icon{
+      left: 20px;
+      right: auto;
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    .jis-multimedia-feature{
+      flex-direction: column;
+    }
+
+    .jis-home-radio-featured-program{
+      padding: 5% 0;
+    }
+
+    .jis-home-radio-featured{
+      border: none;
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    .jis-photo-card figcaption{
+      display: none;
+    }
+  }
+
+
+  /*=== Tourism Section
+  ------------------------------------------------------*/
+
+  .jis-tourism-title{
+    color: var(--color-jis-brown-4);
+    border-color: var(--color-jis-brown-4);
+  }
+
+  /* animate bg */
+  .tourism-section-bg-wrap{
+    min-height: 33rem;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    background-position: top -250px center;
+    background-size: cover;
+    display: flex;
+    position: relative;
+    animation-duration: 20s;
+    animation-timing-function: ease-in;
+    animation-iteration-count: 1;
+    animation-name: move_bg;
+  }
+
+  .jis-cool-fact-of-the-month{
+    background-color: rgba(0, 0, 0, .5);
+    padding: 4.5%;
+    box-sizing: border-box;
+    width: 35%;
+    
+  }
+
+  .jis-cool-fact-of-the-month span{
+    font-family: var(--font-jis-fm-secondary);
+    font-size: var(--font-jis-body-text);
+    line-height: calc(var(--font-jis-body-text) * 1.3);
+    color: var(--color-jis-cream-white);
+    display: block;
+  }
+
+  .jis-cool-fact-of-the-month h2{
+    font-family: var(--font-jis-fm-secondary);
+    font-size: var(--font-jis-large-txt);
+    line-height: calc(var(--font-jis-large-txt) * 1.125);
+    font-weight: bold;
+    color: var(--color-jis-yellow-4);
+    margin: 0;
+  }
+
+  .jis-cool-fact-of-the-month p{
+    color: var(--color-jis-cream-white);
+    font-size: var(--font-jis-sub-header);
+    line-height: calc(var(--font-jis-sub-header) * 1.5);
+  }
+
+  .jis-cool-fact-of-the-month a{
+    font-family: var(--font-jis-fm-secondary);
+    font-size: var(--font-jis-small-text);
+    line-height: calc(var(--font-jis-small-text) * 1.3);
+    color: var(--color-jis-yellow-4);
+  }
+
+  .jis-tourism-features{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1.3rem;
+    display: grid;
+    gap: 1.3%;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: #000;
+  }
+
+  .tourism-feature-item{
+    display: flex;
+    border-left: 1px solid rgba(168, 154, 20, 0.61);
+  }
+
+  .tourism-feature-item figure{
+    margin-left: 3.9%;
+    max-width: 165px;
+  }
+
+  .tourism-feature-item figure img{
+    max-width: 100%;
+  }
+
+  .tourism-feature-item:first-child{
+    border: none;
+  }
+
+  .jis-tourism-features .tourism-feature-details{
+    margin-left: 1.5rem;
+  }
+
+  .jis-tourism-features .tourism-feature-details h3{
+    color: var(--color-jis-cream-white);
+    font-size: var(--font-jis-header);
+    line-height: calc(var(--font-jis-header) * 1.3);
+    font-weight: normal;
+    margin: 0;
+    padding: 0 0 1rem 0;
+  }
+
+  .jis-tourism-features .tourism-feature-details span{
+    font-family: var(--font-jis-fm-secondary);
+    font-size: var(--font-jis-small-text);
+    line-height: calc(var(--font-jis-small-text) * 1.3);
+    color: var(--color-jis-yellow-4);
+  }
+
+  @keyframes move_bg {
+
+    0%{
+      background-size: 100%;
+      background-position: top 0px center;
+    }
+
+
+
+    50%{
+      background-size: 130%;
+      background-position: top -250px center;
+    }
+
+    
+    100%{
+      background-size: 100%;
+      background-position: top -150px center;
+    }
+    
+  }
+
+
+   /* Media Queries
+  ------------------------------ */
+
+  @media screen and (max-width: 1650px) {
+    .tourism-section-bg-wrap{
+      min-height: 33rem;
+      background-position: top -150px center;
+    }
+  }
+
+  @media screen and (max-width: 1440px) {
+    .tourism-section-bg-wrap{
+      min-height: 30rem;
+      background-position: top -50px center;
+      animation: none;
+    }
+  }
+
+  @media screen and (max-width: 1100px) {
+    .tourism-section-bg-wrap{
+      display: flex;
+      animation: none;
+      background-position: top 0 left 0;
+    }
+
+    .jis-cool-fact-of-the-month{
+      width: 50%;
+    }
+
+    .jis-tourism-features{
+      position: static;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      padding: 0;
+      align-items: center;
+    }
+
+    .tourism-feature-item{
+      /* border-top: 1px solid rgba(168, 154, 20, 0.61); */
+      border: none;
+    }
+
+    @media screen and (max-width: 750px) {
+      .tourism-section-bg-wrap{
+        flex-direction: column;
+        min-height: auto;
+      }
+
+      .jis-cool-fact-of-the-month{
+        width: 100%;
+      }
+  
+      .jis-tourism-features{
+        position: static;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        padding: 5% 0;
+        gap: 2%;
+        align-items: center;
+      }
+  
+      .tourism-feature-item{
+        /* border-top: 1px solid rgba(168, 154, 20, 0.61); */
+        border: none;
+      }
+    }
+  }
+
+  /*=== Features Section
+  ------------------------------------------------------*/
+
+  .jis-features-title{
+    color: var(--color-jis-blue-5);
+    border-color: var(--color-jis-blue-5);
+  }
+
+  .jis-features-content-wrap{
+    display: flex;
+    gap: 2%;
+    width: 100%;
+  }
+
+  .jis-feature-primary{
+    flex: 1 0 60%;
+  }
+  
+  .jis-featured-stories{
+    flex: 1 1 38%;
+  }
+
+
+  .jis-feature-primary.jis-photo-card figure{
+    border-bottom: 8px solid var(--color-jis-blue-5);
+  }
+
+  .jis-feature-primary.jis-photo-card .photo-label{
+    background-color: var(--color-jis-blue-5);
+  }
+
+  .jis-feature-primary.jis-photo-card figcaption.story-title-caption{
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+  }
+
+  .jis-feature-primary.jis-photo-card figcaption.story-title-caption h2{
+    font-size: var(--font-jis-header);
+    line-height: clac(var(--font-jis-header) * 1.5);
+    font-weight: bold;
+    text-align: right;
+    color: #fff;
+    margin: 0;
+    padding: 1rem 0 .5rem 0;
+  }
+
+  .jis-feature-primary.jis-photo-card figcaption.story-title-caption span{
+    text-align: right;
+    color: var(--color-jis-cream-white);
+    font-size: var(--font-jis-body-text);
+    line-height: calc(var(--font-jis-body-text) * 1.125);
+  }
+
+  .jis-feature-primary.jis-photo-card figcaption.story-title-caption span .author-name{
+    color: var(--color-jis-yellow-5);
+  }
+
+  .jis-featured-stories .jis-news-list li {
+    border-color: rgba(108, 110, 185, 0.13);
+  }
+
+  .jis-featured-stories .jis-news-list .news-list-date {
+    color: var(--color-jis-blue-5);
+    font-size: var(--font-jis-small-text);
+    line-height: calc(var(--font-jis-small-text) * 1.125);
+  }
+  
+  .jis-featured-stories .jis-news-list li a {
+    color: var(--color-jis-black);
+    font-size: var(--font-jis-list-item);
+    line-height: calc(var(--font-jis-list-item) * 1.5);
+  }
+
+  .jis-featured-stories .jis-news-list .story-credit {
+    color: var(--color-jis-blue-5);
+    font-size: var(--font-jis-small-text);
+    line-height: calc(var(--font-jis-small-text) * 1.125);
+  }
+
+
+  /* Media Queries
+  ----------------------------- */
+
+  @media screen and (max-width: 1100px) {
+    .jis-features-content-wrap{
+      flex-direction: column;
+    }
+  }
+
+
+    /*=== Footer
+  ------------------------------------------------------*/
+  
+  .jis-footer{
+    background-color: #000;
+    width: 100%;
+    padding: 2rem 0 0 0;
+    flex-shrink: 0;
+  }
+
+  .jis-footer-navigation{
+    display: flex;
+    gap: 2%;
+  }
+
+  .footer-column{
+    flex: 1 1 15%;
+  }
+
+  .footer-column h5{
+    font-family: var(--font-jis-fm-secondary);
+    font-size: var(--font-jis-body-text);
+    line-height: calc(var(--font-jis-body-text) * 1.5);
+    font-weight: bold;
+    color: #fff;
+    margin: 0 0 1rem 0
+  }
+
+  .jis-footer-nav-list{
+    list-style-type: none;
+    margin: 0 0 2rem 0;
+    padding: 0;
+  }
+
+  .jis-footer-nav-list li a{
+    font-family: var(--font-jis-fm-secondary);
+    color: var(--color-jis-cream-white);
+    line-height: calc(var(--font-jis-small-text) * 1.5);
+    font-size: var(--font-jis-small-text);
+  }
+
+  .footer-copyright{
+    border-top: 1px solid rgba(255, 255, 255, .13);
+    padding: 1rem 0 2rem 0;
+    display: flex;
+    width: 100%;
+  }
+
+  .footer-copyright span{
+    flex: 1 1 40%;
+    font-family: var(--font-jis-fm-secondary);
+    color: var(--color-jis-cream-white);
+    line-height: calc(var(--font-jis-small-text) * 1.5);
+    font-size: var(--font-jis-small-text);
+  }
+
+  .footer-copyright nav{
+    flex: 1 1 60%;
+    color: var(--color-jis-cream-white);
+    justify-self: flex-end;
+    text-align: right;
+  }
+
+  .footer-copyright nav a{
+    font-family: var(--font-jis-fm-secondary);
+    color: var(--color-jis-cream-white);
+    line-height: calc(var(--font-jis-small-text) * 1.5);
+    font-size: var(--font-jis-small-text);
+  }
+
+
+   /*=== JIS single story
+  ------------------------------------------------------*/
+
+  .read-easy-wrapper{
+    width: clamp(40rem, 27vw, 43.75rem);
+    margin: 0 auto;
+  }
+
+  .jis-single-story-header{
+    padding-top: 10%;
+    border-bottom: 8px solid var(--color-jis-yellow-1);
+  }
+
+  .jis-single-story-header .story-credit {
+    color: var(--color-jis-yellow-1);
+    font-size: var(--font-jis-body-text);
+  }
+  .jis-single-story-header .story-author{
+    color: var(--color-jis-black);
+  }
+
+  .jis-single-story-header h1{
+    font-size: var(--font-jis-large-txt);
+    line-height: calc(var(--font-jis-large-txt) * 1.3);
+    margin: 0;
+    padding: 0 0 3% 0;
+  }
+
+  .jis-single-story-meta{
+    display: flex;
+    width: 100%;
+    margin-top: 5%;
+  }
+
+  .jis-single-story-meta > div{
+    flex: 1 1 33.33333333%;
+  }  
+
+  .jis-single-story-cat-tag{
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+    background-color: var(--color-jis-yellow-1);
+    color: var(--color-jis-cream-white);
+    padding: 1.3% 0;
+  }
+
+  .jis-share-story{
+    justify-self: right;
+  }
+
+  .jis-share-story button{
+    float: right;
+    margin-right: 1rem;
+  }
+
+  .jis-single-story-content p{
+    font-size: var(--font-jis-body-text);
+    line-height: calc(var(--font-jis-body-text) * 1.5);
+    padding: 1% 0;
+  }
+
+  .story-author-quick-profile{
+    background-color: #fff;
+    border-top: 5px solid var(--color-jis-yellow-1);
+    padding: 1.3%;
+    margin: 15% 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .story-author-quick-profile .author-details{
+    display: flex;
+
+  }
+
+  .story-author-quick-profile .author-details span{
+    display: block;
+  }
+
+  .story-author-quick-profile .author-label{
+    flex: 1 0 30%;
+    align-items: center;
+    font-family: var(--font-jis-fm-secondary);
+    font-size: var(--font-jis-body-text);
+    line-height: calc(var(--font-jis-body-text) * 1.5);
+    font-weight: bold;
+    border-right: 1px solid rgba(0, 0, 0, .13);
+  }
+
+  .story-author-quick-profile .author-label span:first-child{
+    color: var(--color-jis-yellow-1);
+  }
+
+  .story-author-quick-profile .author-description p{
+    padding: 0 0 0 3%;
+    font-family: var(--font-jis-fm-secondary);
+    font-size: var(--font-jis-small-text);
+    line-height: calc(var(--font-jis-small-text) * 1.5);
+  }
+
+  /* Media Queries
+  ----------------------------- */
+
+  @media screen and (max-width: 640px) {
+    .read-easy-wrapper{
+      width: 80%;
+      margin: 0 10%;
+    }
+
+    .jis-single-story-cat-tag{
+      display: none;
+    }
+  
+  }
+
+  @media screen and (max-width: 480px) {
+    .story-author-quick-profile .author-details{
+      flex-direction: column;
+    }
+
+    .story-author-quick-profile .author-description p{
+      padding-left: 0;
+    }
+
+    .story-author-quick-profile .author-label{
+      border: none;
+    }
+
+    .jis-single-story-meta > div{
+      flex: 1 1 auto;
+    }
+  
+    .jis-small-radio-player{
+      flex-basis: 60%;
+      padding-bottom: .5rem;
+    }
+  
+  }
+
+
+  /*=== JIS Radio
+  ------------------------------------------------------*/
+
+
+  .jis-radio-player-wrapper{
+    display: flex;
+    min-height: 30rem;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .jis-radio-page-title{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    padding: .3rem .5rem;
+    margin: 0;
+    color: var(--color-story-title);
+    font-size: var(--font-jis-body-text);
+    font-family: var(--font-jis-fm-secondary);
+  }
+
+  .jis-radio-page-sub-title{
+    color: var(--color-jis-yellow-2);
+    border-color: var(--color-jis-yellow-2);
+  }
+
+  .jis-radio-programs-list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.3%;
+    padding: 1.3% 0 10% 0;
+  }
+
+  .radio-program-item{
+    display: block;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 5px solid var(--color-jis-yellow-1);
+    width: 165px;
+    height: 165px;
+    position: relative;
+    font-family: var(--font-jis-fm-secondary);
+    overflow: hidden;
+    flex-shrink: 0;
+    margin-bottom: 1.3%;
+  }
+
+  .radio-program-item img{
+    opacity: 0;
+  }
+
+  .radio-program-item .program-tag{
+    position: absolute;
+    background-color: var(--color-jis-yellow-1);
+    color: #fff;
+    display: inline-block;
+    padding: .3rem;
+    bottom: 0;
+    left: 0;
+    z-index: var(--layer-index-bottom);
+  }
+
+  .radio-program-item .radio-program-item-overlay{
+    transform: translateY(166px);
+    opacity: 0;
+    transition: all 500ms ease-in;
+  }
+
+  .radio-program-item:hover{
+    border-color: #fff;
+    box-shadow: 1px 2px 6px rgba(169, 116, 0, 0.13);
+  }
+
+  .radio-program-item:hover .program-tag{
+    background-color: #fff;
+    color: var(--color-jis-yellow-1);
+  }
+
+  .radio-program-item:hover .radio-program-item-overlay{
+    position: absolute;
+    height: 165px;
+    width: 165px;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: var(--layer-index-bottom);
+    color: #fff;
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+
+  .radio-program-item .overlay-description{
+    display: inline-block;
+    padding: 0 10%;
+    font-weight: 400;
+    text-align: center;
+  }
+
+
+/*=== JIS Information 
+------------------------------------------------------*/
+
+
+.jis-jamaica-magazine-section{
+  display: flex;
+  padding-top: 3%;
+}
+
+.jis-jm-feature-photo{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.jis-jm-feature-photo img{
+  max-width: 100%;
+  width: 100%;
+  opacity: 0;
+}
+
+.jis-jm-feature-photo,
+.jis-jm-feature-description{
+  flex: 1 1 50%;
+  background-color: #000;
+}
+
+.jis-jm-feature-description{
+
+  padding: 1.3% 3%;
+  position: relative;
+
+}
+
+.jis-jm-feature-description .jis-jm-feature-content h1{
+  color: var(--color-jis-yellow-4);
+  font-size: var(--font-jis-large-txt);
+  font-weight: 700;
+}
+
+.jis-jm-feature-description .jis-jm-feature-content p{
+  font-size: var(--font-jis-body-text);
+  line-height: calc(var(--font-jis-body-text) * 1.5);
+  color: var(--color-jis-cream-white);
+}
+
+.jis-jm-feature-description .jis-jm-feature-content h3{
+  font-family: var(--font-jis-fm-secondary);
+  font-size: var(--font-jis-body-text);
+}
+
+.jis-jm-feature-description .jis-jm-video-highlights{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: rgba(255, 255, 255, .013);
+  border-top: 1px solid rgba(255, 255, 255, .3);
+  display: flex;
+}
+
+.jis-jm-feature-description .jis-jm-video-highlights li{
+  padding: 3%;
+  border-right: 1px solid rgba(255, 255, 255, .3);
+  color: #ccc;
+  flex: 1 1 33.333333333333%;
+}
+
+.jis-jm-feature-description .jis-jm-video-highlights li:last-child{
+  border: none;
+}
+
+.jis-jm-feature-content-footer{
+  background-color: rgba(129, 116, 0, 0.3);
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  padding: 2% 0;
+  align-items: center;
+}
+
+
+.jis-jm-feature-content-footer .jis-jm-air-date,
+.jis-jm-feature-content-footer .jis-jm-play-video{
+  flex: 1 1 50%;
+}
+
+.jis-jm-feature-content-footer .jis-jm-air-date{
+  text-indent: 6%;
+  display: block;
+  color: var(--color-jis-yellow-2);
+  font-family: var(--font-jis-fm-secondary);
+  font-size: var(--font-jis-small-text);
+}
+
+
+.jis-jm-feature-content-footer .jis-jm-play-video{
+  background: none;
+  border: none;
+  color: var(--color-jis-cream-white);
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+
+.jis-jm-feature-content-footer .jis-jm-play-video span{
+  margin-right: .5rem;
+}
+
+.jis-jm-feature-content-footer .jis-jm-play-video .jis-play-icon-svg{
+  margin-right: 5%;
+}
+
+.jis-jm-feature-content-footer .jis-jm-play-video .jis-play-icon-svg .ring{
+  stroke: rgba(255, 255, 255, .53);
+}
+
+
+/* This is Jamaica
+-------------------------------------------- */
+
+
+
+.jis-section-title.jis-this-is-jamaica{
+  color: var(--color-jis-yellow-1);
+  border-color: var(--color-jis-yellow-1);
+}
+
+.jis-tij-feature{
+  display: flex;
+  gap: 1%;
+}
+
+.jis-tij-feature-item{
+  flex: 1 1 auto;
+}
+
+/* About Jamaica 
+------------------------------------ */
+
+.jis-about-jamaica-section{
+  margin-top: 3.5%;
+  border-top: 5px solid var(--color-jis-yellow-1);
+  background-color: #fff;
+  position: relative;
+}
+
+.jis-about-jamaica-section h2{
+  background-color: var(--color-jis-yellow-1);
+  color: #fff;
+  display: inline-block;
+  padding: 3px .5rem .5rem .5rem;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: var(--font-jis-fm-secondary);
+  font-size: var(--font-jis-body-text);
+  font-weight: bold;
+}
+
+.jis-about-jamaica-feature{
+  display: flex;
+}
+
+.jis-about-jamaica-content-details,
+.jis-about-famous-jamaicans{
+  flex: 1 1 50%;
+}
+
+.jis-about-jamaica-content-details{
+  border-right: 1px solid var(--color-jis-yellow-1);
+  display: flex;
+  padding: 3% 0;
+}
+
+.jis-about-jamaica-content{
+  flex: 1 1 60%;
+  padding: 0 5%;
+}
+
+.jis-about-jamaica-content p{
+  font-size: var(--font-jis-body-text);
+  line-height: calc(var(--font-jis-body-text) * 1.5);
+  padding: calc(var(--font-jis-body-text) * 1.5) 0;
+}
+
+.jis-about-jamaica-content span{
+  display: block;
+  margin-bottom: 5%;
+}
+
+.jis-about-jamaica-content span a{
+  font-weight: bold;
+  color: var(--color-jis-yellow-1);
+}
+
+.jis-small-radio-player-btn{
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.jis-small-radio-player-btn span{
+  color: var(--color-jis-black);
+  font-size: var(--font-jis-body-text);
+  margin: 0 0 0 .5rem;
+  font-weight: bold;
+}
+
+.jis-small-radio-player-btn svg .ring{
+  fill: rgba(129, 116, 0, .5);
+  stroke: var(--color-jis-yellow-3);
+}
+
+
+.jis-about-jamaica-qf-list{
+  flex: 1 1 auto;
+  justify-self: right;
+  list-style-type: none;
+  margin: 3% 0 0 0;
+  padding: 0;
+}
+
+.jis-about-jamaica-qf-list li{
+  text-align: left;
+  padding: 5% 3% 5% 0;
+  border-bottom: 1px solid var(--color-jis-yellow-1);
+  font-size: var(--font-jis-body-text);
+  color: var(--color-jis-yellow-1);
+  font-family: var(--font-jis-fm-secondary);
+}
+
+.jis-about-jamaica-qf-list li b{
+  color: var(--color-jis-black);
+  font-family: var(--font-jis-fm-main);
+}
+
+.jis-about-famous-jamaicans{
+  padding: 1.3% 3%;
+}
+
+.jis-about-famous-jamaicans-content{
+  display: flex;
+  flex-direction: column;
+}
+
+.jis-about-famous-jamaicans-content-header{
+  position: relative;
+}
+
+.jis-about-famous-jamaicans-content-header h3{
+  border-bottom: 1px solid var(--color-jis-yellow-3);
+  padding-bottom: .5rem;
+  margin: 0 0 1rem 0;
+}
+
+.jis-about-famous-jamaicans-content-header nav{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.jis-about-famous-jamaicans-content-details{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+}
+
+.jis-about-famous-jamaicans-content-details img{
+  grid-column: 1/2;
+  grid-row: 1/3;
+  margin-right: 1rem;
+}
+
+.jis-about-famous-jamaicans-content-details h4{
+  grid-column: 2/3;
+  grid-row: 1/2;
+  margin: 0;
+  padding: 0;
+  font-size: calc(var(--font-jis-header) * 1.5);
+  line-height: calc(var(--font-jis-header) * 1.5);
+  color: var(--color-jis-yellow-2);
+}
+
+.jis-about-famous-jamaicans-content-details p{
+  grid-column: 2/3;
+  grid-row: 2/3;
+  font-size: var(--font-jis-body-text);
+  line-height: calc(var(--font-jis-body-text) * 1.5);
+  margin: 0;
+}
+
+/* Information News
+----------------------------------------------- */
+
+.jis-section-title.information-news-title{
+  color: var(--color-jis-yellow-1);
+  border-color: var(--color-jis-yellow-1);
+}
+
+.jis-information-page-news-feature{
+  display: flex;
+}
+
+.jis-information-page-news-feature .primary-feature,
+.jis-information-page-news-feature .news-aside{
+  flex: 1 1 50%;
+  box-sizing: border-box;
+}
+
+.jis-information-page-news-feature .primary-feature{
+  padding-right: 1.3%;
+}
+
+.jis-information-page-news-feature .featured-story-title,
+.jis-information-page-news-feature .primary-feature .story-credit{
+  text-align: center;
+  padding: 0 1.3%;
+}
+
+.jis-information-page-news-feature .featured-story-title{
+  font-size: var(--font-jis-sub-header);
+  line-height: calc(var(--font-jis-sub-header) * 1.5);
+  color: var(--color-jis-black);
+  font-weight: bold;
+}
+
+.jis-information-page-news-feature .story-author-name{
+  color: var(--color-jis-yellow-1);
+}
+
+.jis-information-page-news-feature .secondary-feature-item figure{
+  border-bottom: 3px solid var(--color-jis-yellow-3);
+}
+
+.jis-information-page-news-feature .secondary-feature-item .story-feature-title{ 
+  font-weight: bold;
+}
+
+.jis-information-page-news-feature .secondary-feature-item p{
+  font-size: var(--font-jis-body-text);
+  line-height: calc(var(--font-jis-body-text) * 1.5);
+}
+
+.feature-read-more-link{
+  font-weight: bold;
+  color: var(--color-jis-yellow-1);
+}
+
+
+/* Useful Information
+----------------------------------------------- */
+
+.jis-section-title.jis-useful-information-title{
+  color: var(--color-jis-yellow-1);
+  border-color: var(--color-jis-yellow-1);
+  margin-bottom: 0;
+  margin-block-end: 0;
+}
+
+.jis-useful-information-content-wrapper{
+  position: relative;
+}
+
+.jis-section-sub-title.jis-todays-tip{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: var(--layer-index-bottom);
+  background-color: var(--color-jis-yellow-1);
+  font-family: var(--font-jis-fm-secondary);
+  font-weight: bold;
+  font-size: var(--font-jis-body-text);
+  margin: 0;
+  padding: 3px .5rem .5rem .5rem;
+  color: #fff;
+}
+
+.jis-useful-information-content{
+  display: flex;
+}
+
+.jis-todays-tip-content-details{
+  display: flex;
+  flex: 1 1 75%;
+  padding-bottom: 3%;
+}
+
+.jis-useful-information-more-tips{
+  flex: 1 1 auto;
+  border-left: 1px solid var(--color-jis-yellow-1);
+  box-sizing: border-box;
+  padding-left: 1.3%;
+}
+
+.jis-tt-content-summary{
+  padding: 6% 0 3% 0;
+  flex: 1 1 70%;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: calc(var(--font-jis-sub-header) * 1.5) auto auto;
+  padding-right: 3%;
+}
+
+.jis-todays-tip-content-details .jis-tt-readmore-img-link{
+  grid-column: 1/2;
+  grid-row: 1/4;
+  margin-right: 1rem;
+}
+
+.jis-todays-tip-content-details h4{
+  margin: 0;
+  padding: 0;
+  font-size: var(--font-jis-header);
+  line-height: calc(var(--font-jis-header) * 1.5);
+  font-weight: bold;
+}
+
+.jis-todays-tip-content-details p{
+  font-size: var(--font-jis-body-text);
+  line-height: calc(var(--font-jis-body-text) * 1.5);
+  padding-right: 1.3%;
+}
+
+.jis-todays-tip-required-docs{
+  flex: 1 1 auto;
+}
+
+.jis-todays-tip-required-docs h5,
+.jis-useful-information-more-tips h5{
+  font-weight: bold;
+  color: var(--color-jis-yellow-1);
+  font-size: var(--font-jis-body-text);
+  line-height: calc(var(--font-jis-body-text) * 1.5);
+  text-align: right;
+  padding-right: 1rem;
+}
+
+.jis-todays-tip-required-docs ul{
+  list-style-type: none;
+  margin: 0 0 10% 0;
+}
+
+.jis-todays-tip-required-docs li{
+  padding: 1rem 0;
+  border-top: 1px solid var(--color-jis-yellow-1);
+  font-size: calc(var(--font-jis-body-text) * 0.777777778);
+  line-height: calc(var(--font-jis-body-text) * 1.5);
+  text-align: right;
+  padding-right: 1rem;
+}
+
+.jis-todays-tip-required-docs li:last-child{
+  border-bottom: 1px solid var(--color-jis-yellow-1);
+}
+
+.jis-tt-find-jp-link{
+  font-weight: bold;
+  color: var(--color-jis-yellow-1);
+  display: block;
+  text-align: right;
+  padding-right: 1rem;
+}
+
+.jis-useful-information-more-tips{
+  padding-bottom: 3.5rem;
+}
+
+.jis-useful-information-more-tips h5{
+  text-align: left;
+  padding: 0;
+}
+
+.jis-useful-information-more-tips ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0 0 10% 0;
+}
+
+.jis-useful-information-more-tips li{
+  padding: 1rem 0;
+  font-size: calc(var(--font-jis-body-text) * 0.777777778);
+  line-height: calc(var(--font-jis-body-text) * 1.5);
+  border-top: 1px solid rgba(129, 116, 0, .15);
+}
+
+.jis-useful-information-more-tips li:last-child{
+  border-bottom: 1px solid rgba(129, 116, 0, .15);
+}
+
+.jis-tt-feedback-link{
+  font-weight: bold;
+}
+

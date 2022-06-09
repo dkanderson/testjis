@@ -1,0 +1,10 @@
+<svg version="1.1" id="play-icon" x="0px" y="0px"
+	 viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+	<style type="text/css">
+		.ring{fill:rgba(255,255,255,0.13);stroke:#FFFFFF;stroke-miterlimit:10;}
+		.triangle{fill:#FFFFFF;}
+	</style>
+
+<circle class="ring" cx="25.29" cy="25.04" r="24.02"/>
+<polygon class="triangle" points="35.64,25.04 17.78,14.73 17.78,35.35 "/>
+</svg>
