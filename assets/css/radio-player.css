@@ -1,0 +1,399 @@
+/* = Full Radio Player: START
+------------------------------------------------------------------------------------------------------
+usage:
+<div  id="jis-radio-player" 
+      class="jis-radio-player-full" 
+      data-url="[audio url]" 
+      data-playerType="full"></div>
+-----------------------------------------------------------------------------------------------------*/
+
+.radio-player-wrapper {
+  --seek-before-width: 0%;
+  --volume-before-width: 100%;
+  --buffered-width: 0%;
+  font-family: var(--font-jis-fm-main);
+  background-color: #ffffff;
+  padding: 0.9rem;
+  width: 43.7rem;
+  display: flex;
+  box-shadow: 1px 2px 6px rgba(169, 116, 0, 0.13);
+}
+
+.jis-radio-player-full .thumb-wrapper {
+  flex: 1 0 30%;
+  margin-right: 20px;
+  max-height: 9rem;
+  overflow: hidden;
+}
+
+.jis-radio-player-full .thumb-wrapper img {
+  object-fit: cover;
+  max-width: 100%;
+}
+
+.jis-radio-player-full .radio-content-text{
+  min-height: 5rem;
+}
+
+.jis-radio-player-full .radio-content-description h3 {
+  font-size: 0.95rem;
+  margin: 0 0 .5rem 0;
+}
+
+.jis-radio-player-full .radio-content-description p {
+  color: #333;
+  font-size: 0.85rem;
+  line-height: 1.13rem;
+}
+
+.jis-radio-player-full .radio-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.jis-radio-player-full .custom-radio-player,
+.jis-radio-player-full .radio-content {
+  width: 100%;
+}
+
+.jis-radio-player-full .custom-radio-player {
+  font-family: Helvetica;
+  color: #817400;
+  font-size: 0.85rem;
+  display: flex;
+}
+
+/*=== Custom Audio Player
+------------------------------------------------------------------------*/
+
+.jis-radio-player-full #volume-slider::-webkit-slider-runnable-track {
+  background: rgba(169, 116, 0, 0.6);
+}
+.jis-radio-player-full #volume-slider::-moz-range-track,
+.jis-radio-player-full #seek-slider::-moz-range-track {
+  background: rgba(169, 116, 0, 0.6);
+}
+.jis-radio-player-full #volume-slider::-ms-fill-upper,
+.jis-radio-player-full #seek-slider::-ms-fill-upper {
+  background: rgba(169, 116, 0, 0.6);
+}
+.jis-radio-player-full #volume-slider::before {
+  width: var(--volume-before-width);
+}
+
+.jis-radio-player-full input[type="range"] {
+  position: relative;
+  -webkit-appearance: none;
+  width: 48%;
+  margin: 0;
+  padding: 0;
+  height: 19px;
+  margin: 0 2.5% 20px 2.5%;
+  outline: none;
+}
+.jis-radio-player-full #volume-slider {
+  width: 20%;
+}
+.jis-radio-player-full input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+  background: linear-gradient(
+    to right,
+    rgba(129, 116, 0, 0.6) var(--buffered-width),
+    rgba(129, 116, 0, 0.2) var(--buffered-width)
+  );
+}
+.jis-radio-player-full input[type="range"]::before {
+  position: absolute;
+  content: "";
+  top: 8px;
+  left: 0;
+  width: var(--seek-before-width);
+  height: 3px;
+  background-color: rgba(129, 116, 0, 1);
+  cursor: pointer;
+}
+.jis-radio-player-full input[type="range"]::-webkit-slider-thumb {
+  position: relative;
+  -webkit-appearance: none;
+  box-sizing: content-box;
+  border: 1px solid rgba(169, 116, 0, 0.5);
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: #fff;
+  cursor: pointer;
+  margin: -7px 0 0 0;
+}
+.jis-radio-player-full input[type="range"]:active::-webkit-slider-thumb {
+  transform: scale(1.2);
+  background: rgba(169, 116, 0, 0.5);
+}
+.jis-radio-player-full input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 3px;
+  cursor: pointer;
+  background: linear-gradient(
+    to right,
+    rgba(129, 116, 0, 0.6) var(--buffered-width),
+    rgba(129, 116, 0, 0.3) var(--buffered-width)
+  );
+}
+.jis-radio-player-full input[type="range"]::-moz-range-progress {
+  background-color: rgba(169, 116, 0, 1);
+}
+.jis-radio-player-full input[type="range"]::-moz-focus-outer {
+  border: 0;
+}
+.jis-radio-player-full input[type="range"]::-moz-range-thumb {
+  box-sizing: content-box;
+  border: 1px solid rgba(169, 116, 0, 0.5);
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: #fff;
+  cursor: pointer;
+}
+.jis-radio-player-full input[type="range"]:active::-moz-range-thumb {
+  transform: scale(1.2);
+  background: #007db5;
+}
+.jis-radio-player-full input[type="range"]::-ms-track {
+  width: 100%;
+  height: 3px;
+  cursor: pointer;
+  background: transparent;
+  border: solid transparent;
+  color: transparent;
+}
+.jis-radio-player-full input[type="range"]::-ms-fill-lower {
+  background-color: #007db5;
+}
+.jis-radio-player-full input[type="range"]::-ms-fill-upper {
+  background: linear-gradient(
+    to right,
+    rgba(169, 116, 0, 0.6) var(--buffered-width),
+    rgba(169, 116, 0, 0.2) var(--buffered-width)
+  );
+}
+.jis-radio-player-full input[type="range"]::-ms-thumb {
+  box-sizing: content-box;
+  border: 1px solid #007db5;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: #fff;
+  cursor: pointer;
+}
+.jis-radio-player-full input[type="range"]:active::-ms-thumb {
+  transform: scale(1.2);
+  background: #007db5;
+}
+.jis-radio-player-full #duration {
+  display: inline-block;
+  padding-right: 20px;
+  position: relative;
+  top: 2px;
+}
+.jis-radio-player-full #play-icon {
+  width: 0;
+  height: 0;
+  margin: 2px 0 0 0;
+  padding: 0;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-right: none;
+  background: transparent;
+
+  border-left: 10px solid rgba(129, 116, 0, 1);
+}
+
+.jis-radio-player-full #play-icon.pause {
+  border-top: 7px solid rgba(129, 116, 0, 1);
+  border-bottom: 7px solid rgba(129, 116, 0, 1);
+  border-left: 2px solid rgba(129, 116, 0, 1);
+  border-right: 2px solid rgba(129, 116, 0, 1);
+  margin-right: 6px;
+  position: relative;
+}
+
+.jis-radio-player-full #play-icon.pause::after {
+  content: "";
+  position: absolute;
+  background-color: rgb(129, 116, 0);
+  width: 4px;
+  height: 14px;
+  left: 4px;
+  bottom: -7px;
+}
+
+.jis-radio-player-full #mute-icon {
+  width: 0;
+  height: 0;
+  margin-right: 5px;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: none;
+  background: transparent;
+  position: relative;
+  border-right: 13px solid rgba(129, 116, 0, 1);
+}
+
+.jis-radio-player-full #mute-icon::before {
+  content: "x";
+  position: absolute;
+  color: rgba(129, 116, 0, 1);
+  top: 50%;
+  right: -23px;
+  margin-top: -0.5rem;
+}
+
+.jis-radio-player-full #mute-icon::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 5px;
+  height: 7px;
+  background-color: rgba(129, 116, 0, 1);
+  left: 12px;
+  top: -2px;
+}
+
+.jis-radio-player-full #mute-icon.unmuted::before {
+  content: "))";
+}
+
+.jis-radio-player-full .presenter-details{
+  display: flex;
+  width: 100%;
+  margin-top: 1rem;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  justify-content: right;
+}
+
+.jis-radio-player-full .pd-text{
+  margin-right: .5rem;
+  padding-top: .5rem;
+}
+
+.jis-radio-player-full .presenter-label{
+  display: block;
+  text-align: right;
+  color: var(--color-jis-yellow-1);
+}
+
+.jis-radio-player-full .presenter-name{
+  text-align: right;
+}
+
+.jis-radio-player-full .presenter-details figure{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid var(--color-jis-yellow-1);
+  overflow: hidden;
+}
+
+.jis-radio-player-full .presenter-details img{
+  max-width: 100%;
+}
+
+
+/* = Full Radio Player: END
+------------------------------------------------------------------------------------------------------*/
+
+
+/* = Small Radio Player: START
+------------------------------------------------------------------------------------------------------
+usage:
+<div  id="jis-radio-player-small" 
+      class="jis-radio-player-small" 
+      data-url="[audio url]" 
+      data-playerType="small"
+      data-buttonLabel="[button label]"></div>
+
+-----------------------------------------------------------------------------------------------------*/
+
+:root{
+  --player-size: 2.5rem
+}
+
+.jis-radio-player-small{
+  display: flex;
+  align-items: center;
+}
+
+.jis-radio-player-small .jis-play-story-icon{
+  border: none;
+  background: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.jis-radio-player-small .jis-play-story-icon .jis-play-icon-svg .pause{
+  fill: none;
+  stroke: none;
+}
+
+.jis-radio-player-small .jis-play-story-icon.pause .jis-play-icon-svg .pause{
+  fill: "#817400";
+}
+
+.jis-radio-player-small .jis-play-story-icon .jis-play-icon-svg .ring{
+  fill: rgba(129, 116, 0, 0.37);
+  stroke: rgba(129, 116, 0, 0.7);
+}
+
+.jis-radio-player-small .jis-play-story-icon:hover .jis-play-icon-svg .ring{
+  fill: rgba(129, 116, 0, .85);
+}
+
+.jis-radio-player-small .jis-play-story-icon:hover .jis-play-icon-svg .triangle{
+  fill: "#817400";
+}
+
+.jis-radio-player-small .jis-play-story-icon.pause .jis-play-icon-svg .triangle{
+  fill: none;
+}
+
+.jis-radio-player-small .jis-play-story-icon:hover{
+  color: rgba(129, 116, 0, .85);
+}
+
+.jis-radio-player-small .progress svg,
+.jis-radio-player-small .jis-play-story-icon{
+    display: block;
+    width: var(--player-size);
+    height: var(--player-size);
+}
+
+.jis-radio-player-small .player-container{
+  position: relative;
+  display: flex;
+}
+
+.jis-radio-player-small .player-label{
+  margin-left: .25rem;
+}
+
+.jis-radio-player-small .jis-play-story-icon{
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.jis-radio-player-small .progress,
+.jis-radio-player-small .player-container{
+  position: absolute;
+  align-self: center;
+  justify-self: center;
+  top: 0;
+  left: 0;
+}
+
+/* = Small Radio Player: END
+------------------------------------------------------------------------------------------------------*/

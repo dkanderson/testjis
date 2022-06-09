@@ -1,0 +1,147 @@
+.jis-video-app {
+  width: clamp(25rem, 80vw, 100rem);
+  margin: 0 auto;
+}
+
+.featured-video {
+  position: relative;
+  margin-top: 3%;
+}
+
+.featured-video figure {
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  background-origin: border-box;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: all 3s ease-out;
+}
+
+.featured-video figcaption .video-feature-overlay {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  bottom: 0;
+  left: 0;
+  z-index: 1300;
+  background-color: rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+  padding: 1rem;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  color: #fff;
+}
+
+.video-feature-overlay .video-meta-label b {
+  color: #d1c129;
+  font-size: 1.3rem;
+}
+
+.featured-video figure img,
+.featured-video iframe {
+  max-width: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.jis-video-app .btn-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1 1 auto;
+}
+
+.jis-video-app .btn-wrapper span {
+  font-weight: bold;
+  font-size: 1rem;
+  margin-right: 0.5rem;
+}
+
+.jis-video-app .btn-wrapper .jis-play-icon-svg {
+  width: 40px;
+  height: 40px;
+}
+
+.jis-video-app .featured-video .jis-play-icon {
+  background: none;
+  border: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.jis-video-app .featured-video .jis-play-icon svg .ring {
+  fill: rgba(129, 116, 0, 0.413);
+  stroke: rgba(255, 255, 255, 8.5);
+}
+
+.jis-video-app .featured-video .jis-play-icon svg .triangle {
+  fill: #fff;
+}
+
+.jis-video-playlists {
+  padding: 3% 0;
+}
+
+.jis-yt-video-playlist-group {
+  position: relative;
+}
+
+.jis-yt-video-playlist-group h2 {
+  border-bottom: 1px solid #333;
+  padding: 0.5rem 0;
+}
+
+.clip-mask {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.jis-yt-video-playlist-group-wrapper {
+  display: flex;
+  gap: 0.5rem;
+  transition: all 3s ease-in;
+}
+
+.jis-yt-playlist-thumb {
+  width: 320px;
+  height: 180px;
+  border: 1px solid #000;
+  flex: 1 0 320px;
+  position: relative;
+}
+
+.jis-yt-nav-btn {
+  background: none;
+  border: none;
+  padding: 1rem;
+  font-size: 3rem;
+  position: absolute;
+  top: 50%;
+  margin-top: -1.5rem;
+}
+
+.jis-yt-nav-btn.ji-yt-slide-left {
+  left: -60px;
+}
+
+.jis-yt-nav-btn.ji-yt-slide-right {
+  right: -60px;
+}
+
+.jis-yt-video-details{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-family: var(--font-jis-fm-secondary);
+  font-size: var(--font-jis-small-text);
+  padding: .5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
