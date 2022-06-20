@@ -38,7 +38,9 @@ class JisVideo extends React.Component {
       featuredPlaylists: JSON.parse(vp_domContainer.dataset.playlist),
       fpLength: JSON.parse(vp_domContainer.dataset.playlist).length,
       playerActive: false,
-      playlistsData: []
+      playlistsData: [],
+      slides: [],
+      valuesSet: false
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -48,6 +50,7 @@ class JisVideo extends React.Component {
     this.getfeaturedVideo = this.getfeaturedVideo.bind(this);
     this.getAllPlaylists = this.getAllPlaylists.bind(this);
     this.filterPlaylists = this.filterPlaylists.bind(this);
+    this.setupSlideValues = this.setupSlideValues.bind(this);
   }
 
   handleClick(e) {
@@ -56,17 +59,29 @@ class JisVideo extends React.Component {
     });
   }
 
-  slideLeft(e) {
-    let sp = this.state.scrollPosition;
-    console.log(this.state.scrollPosition);
-    this.setState({
-      scrollPosition: sp - 350
-    });
+  slideLeft(i) {
+    let sp = this.state.slides[i].scrollPosition, tw = this.state.slides[i].thumbWidth, sw = this.state.slides[i].slideWidth;
+
+    if ( sp >= ( ( sw - tw ) * -1 ) ) {
+
+        sp = sp - (tw - 8);
+        this.state.slides[i].scrollPosition = sp;
+    }
+   
+  }
+
+  slideRight(i) {
+    let sp = this.state.slides[i].scrollPosition, tw = this.state.slides[i].thumbWidth;
+
+    if ( sp < 0 ) {
+
+        sp = sp + (tw - 8);
+        this.state.slides[i].scrollPosition = sp;
+    }
   }
 
   filterPlaylists(){
     let tempArray = [];
-
     this.state.featuredPlaylists.map((playlistId) => {
       tempArray = this.state.allPlaylists.map((pl) => {
         if(playlistId === pl.id){
@@ -119,9 +134,31 @@ class JisVideo extends React.Component {
             this.listPlaylists(featuredList)
           }
         })
+        .then(() => {
+          this.setupSlideValues();
+        })
       });
     }
   }
+
+  JisSinglePlaylist(playlist) {
+    return playlist.map((data) => {
+      return /*#__PURE__*/ React.createElement("div", {
+            key: data.id,
+            className: `jis-yt-playlist-thumb${ doesThisExistAndNotNull(data, "thumbnailMedium") ? '' : ' jis-hide-remove-display'}`,
+            style: {
+              backgroundImage: `url(${data.thumbnailMedium})`
+            },
+            onClick: () => { this.handleClickCallBack(data.id) }
+          }, /*#__PURE__*/React.createElement("div", {
+            className: "jis-yt-video-details"
+          }, /*#__PURE__*/React.createElement("span", null, data.title)), /*#__PURE__*/React.createElement("img", {
+            src: data.thumbnailMedium,
+            alt: data.title
+          }));
+      });
+  }
+  
 
   listPlaylists(playlist) {
     
@@ -135,30 +172,63 @@ class JisVideo extends React.Component {
             }, /*#__PURE__*/React.createElement("h2", null, this.state.playlistsData[i].title), /*#__PURE__*/React.createElement("nav", {
               className: "jis-yt-nav-btns"
             }, /*#__PURE__*/React.createElement("button", {
-              onClick: this.slideLeft,
+              onClick: () => { this.slideLeft(i) },
               className: "jis-yt-nav-btn ji-yt-slide-left"
             }, "\xAB"), /*#__PURE__*/React.createElement("button", {
-              onClick: this.slideRight,
+              onClick: () => { this.slideRight(i) },
               className: "jis-yt-nav-btn ji-yt-slide-right"
             }, "\xBB")), /*#__PURE__*/React.createElement("div", {
               className: "clip-mask"
             }, /*#__PURE__*/React.createElement("div", {
               style: {
-                transform: `translateX(${data.scrollPosition})`
+                transform: `translateX(${this.state.slides[i].scrollPosition})`
               },
               className: "jis-yt-video-playlist-group-wrapper"
-            }, JisSinglePlaylist(data, this.handleClickCallBack))));
+            }, this.JisSinglePlaylist(data))));
         })
       }
     }
   }
 
-  slideRight(e) {
-    console.log(e);
+  handleClickCallBack(id){
+    this.setState({
+      videoTag: id
+    })
   }
 
-  handleClickCallBack(){
-    // handle click on thumbnail
+  setupSlideValues(){
+    let allSlides = Array.from(document.querySelector('.jis-yt-playlist-thumb'));
+    let initialValue = 0, slideName = '', slideWidth = 0;
+
+
+    if(doesThisExistAndNotNull(allSlides)){
+
+      let slidesData = allSlides.map((slide, index) => {  
+        let thumbWidths = slide.children.map(
+          thumb => thumb.width
+        );
+        
+        slideName = 'jisThumbSlide' + index;
+        slide.dataset.name = slideName;
+        slideWidth = thumbWidths.reduce((currentValue, previousValue) => currentValue + previousValue, initialValue);
+        
+        this.state.slides.push({slideName, slide, slideWidth, scrollPosition: 0, thumbWidth: thumbWidths[0] });
+
+        this.setState({
+          valuesSet: true
+        })
+        
+        return { slideWidth, slide };
+      });
+
+      return slidesData;
+
+    } else {
+
+      return false;
+
+    }
+    
   }
 
   componentDidMount() {
@@ -256,25 +326,6 @@ class JisVideo extends React.Component {
 const vp_root = ReactDOM.createRoot(vp_domContainer);
 vp_root.render(vp(JisVideo));
 
-function JisSinglePlaylist(playlist, handleClickCallBack) {
-  return playlist.map((data) => {
-    return /*#__PURE__*/ React.createElement("div", {
-          key: data.id,
-          className: `jis-yt-playlist-thumb${ doesThisExistAndNotNull(data, "thumbnailMedium") ? '' : ' jis-hide-remove-display'}`,
-          style: {
-            backgroundImage: `url(${data.thumbnailMedium})`
-          },
-          onClick: handleClickCallBack
-        }, /*#__PURE__*/React.createElement("div", {
-          className: "jis-yt-video-details"
-        }, /*#__PURE__*/React.createElement("span", null, data.title)), /*#__PURE__*/React.createElement("img", {
-          src: data.thumbnailMedium,
-          alt: data.title
-        }));
-    });
-}
-
-
 const singleVideo = {
       kind: "youtube#video",
       etag: "ZYKpAr3GsySQTO539gkNwly5fA0",
@@ -343,8 +394,8 @@ function simplifyYoutubeData(pl, sp, sv, dataType) {
   let playlists, selectedPlaylist, selectedVideo = {};
 
 
-
-  if((dataType && dataType === 'playlists' && pl) || pl){
+  
+  if((doesThisExistAndNotNull(dataType) && dataType === 'playlists' && doesThisExistAndNotNull(pl)) || doesThisExistAndNotNull(pl)){
     
     playlists = pl.map((data) => {
       return {id: data.id, title: data.snippet.title};
@@ -370,7 +421,7 @@ function simplifyYoutubeData(pl, sp, sv, dataType) {
   }
 
 
-  if((dataType && dataType === 'selectedVideo' && sv) || sv){
+  if((doesThisExistAndNotNull(dataType) && dataType === 'selectedVideo' && doesThisExistAndNotNull(sv)) || doesThisExistAndNotNull(sv)){
     selectedVideo = {
       id: sv.id,
       title: sv.snippet.title,
@@ -387,7 +438,7 @@ function simplifyYoutubeData(pl, sp, sv, dataType) {
     };
   }
 
-  if(dataType){
+  if(doesThisExistAndNotNull(dataType)){
     switch(dataType){
       case 'playlists':
         return playlists;
@@ -412,13 +463,23 @@ function simplifyYoutubeData(pl, sp, sv, dataType) {
 
 
 function doesThisExistAndNotNull(object, child){
-  if(object !== null && object !== 'undefuned' && object.hasOwnProperty(child)){
-    if(object[child] !== null && typeof object[child] !== 'undefined' && object[child] !== ''){
+    
+  if(typeof object === 'object'){
+    if(object !== null && object !== 'undefined' && object.hasOwnProperty(child)){
+      if(object[child] !== null && typeof object[child] !== 'undefined' && object[child] !== ''){
+        return true;
+      }else{
+        return false;
+      }
+    }
+  } else {
+    if(object !== null && object !== 'undefined'){
       return true;
-    }else{
+    } else {
       return false;
     }
   }
+  
 }
 
 // https://developers.google.com/youtube/iframe_api_reference 
