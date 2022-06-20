@@ -2,8 +2,6 @@
 
 const jis_nav = React.createElement;
 const base_url = document.querySelector('body').dataset.base_url;
-console.log(base_url);
-
 
 class NavButton extends React.Component {
   constructor(props) {
@@ -34,14 +32,36 @@ class NavButton extends React.Component {
       }
   }
 
-  generateNav(){
-      return nav_menu.map((data) => {
+  navIt(nav){
+    nav.map((item) => {
+        return /*#__PURE__*/ React.createElement("li", {key: item.title}, /*#__PURE__*/React.createElement("a", {
+            href: item.link
+        }, item.title));
+    })
+  }
 
-        return /*#__PURE__*/ React.createElement("li", {key: data.title}, /*#__PURE__*/React.createElement("a", {
-    href: data.link
-  }, data.title));
+  subnavList(){
+    return /*#__PURE__*/ React.createElement("ul", null, this.navit(this.state.subnavdata));
+  }
+
+  hovered(data){
+      if(e.type === "mouseenter"){
+          this.setState({subnav: true, subnavdata: data});
+      }
+  }
+
+  generateNav(){
+      let hasSubnav = false;
+
+      return nav_menu.map((data, i) => {
         
-      });
+        data.hasOwnProperty('subnav') ? hasSubnav = true : hasSubnav = false;
+        
+
+        return /*#__PURE__*/React.createElement("li", {key: data.title, onMouseEnter: () => { hasSubnav ? this.hovered(data.subnav) : this.hovered }, onMouseLeave: this.hovered}, /*#__PURE__*/React.createElement("a", {
+          href: data.link
+        }, data.title));
+    })
   }
 
   populateNav(){
@@ -63,7 +83,7 @@ class NavButton extends React.Component {
       className: "bars"
     })), /*#__PURE__*/React.createElement("div", {
       className: `jis-nav-container ${this.state.active ? 'open' : 'closed'}`
-    }, this.populateNav()));
+    }, this.populateNav()), this.state.subav && React.createElement("div", null, this.subnavList()));
   }
 }
 
