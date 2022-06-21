@@ -342,14 +342,14 @@ or image will be blank
   display: flex;
   background-origin: border-box;
   background-position: center center;
-  background-size: 100%;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
   transition: all 3s ease-out;
   overflow: hidden;
 }
 
 .featured-image-link:hover {
-background-size: 105%;
+  background-size: 105% 105%;
 }
 
 .featured-image-link:hover .image-border-tag,
@@ -749,11 +749,96 @@ or image will be blank
 ------------------------------------------------------------------------------------------------*/
 
 
+/* = Animated Loader: START
+-------------------------------------------------------------------------------------------------
+usage:
+
+<span class="loading"></span>
+------------------------------------------------------------------------------------------------*/
+
+:root{
+  --loader-height: 3px;
+  --scroller-width: 30px;
+  --loader-width: 150px;
+  --loader-rail-color: rgba(129, 116, 0.13);
+  --loader-bar-color: var(--color-jis-yellow-1);
+  --loader-font-color: var(--color-jis-yellow-1);
+}
+
+.loading{
+  display: block;
+  position: relative;
+  width: var(--loader-width);
+  height: var(--loader-height);
+  background: var(--loader-rail-color);
+  margin-top: 40px;
+}
+
+.loading::after{
+  content: 'Loading...';
+  display: block;
+  color: var(--loader-font-color);
+  font-family: var(--font-jis-fm-secondary);
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  top: -25px;
+  animation: loading-font infinite linear 6s;
+}
+
+.loading::before{
+  content: '';
+  display: block;
+  position: absolute;
+  width: var(--scroller-width);
+  height: var(--loader-height);
+  background-color: var(--loader-bar-color);
+  animation: loading-osc infinite linear 3s;
+}
+
+@keyframes loading-osc{
+  from {
+    transform: translateX(0);
+  }
+  50%{
+     transform: translateX(calc(var(--loader-width) - var(--scroller-width)));
+  }
+  to {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes loading-font{
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50%{
+    opacity: 1;
+    transform: scale(1.13);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* = Animated Loader: END
+-------------------------------------------------------------------------------------------------*/
+
+.jis-img-container{
+  background-color: rgba(129, 116, 0, .3);
+}
+
+
 
 
 
 /*=== Navigation Bar
 ----------------------------------------*/
+:root{
+  --jis-nav-icon-spacing: 5vw;
+}
 
 .jis-menu-bar{
     width: 100%;
@@ -790,7 +875,7 @@ or image will be blank
 .nav-button-icon{
     width: 1.5rem;
     position: relative;
-    margin-left: 20%;
+    margin-left: var(--jis-nav-icon-spacing);
 }
 
 .nav-button-icon .bars{
@@ -838,16 +923,28 @@ or image will be blank
     background-color: transparent;
 }
 
+
+/* Navigation
+----------------------------------------------- */
+
+:root{
+  --jis-nav-width: 15vw;
+  --jis-nav-height: 100vh;
+  --jis-nav-pos-left: var(--jis-nav-icon-spacing);
+  --jis-nav-pos-top: 3.7rem;
+  --jis-nav-bg-color: rgba(0,0,0,0.95);
+}
+
 .jis-nav-container{
   position: absolute;
   background-color: rgba(0,0,0,0.95);
-  width: 30vw;
-  height: 100vh;
-  top: 2.35rem;
-  left: -10vw;
+  width: var(--jis-nav-width);
+  height: var(--jis-nav-height);
+  top: var(--jis-nav-pos-top);
+  left: calc(var(--jis-nav-pos-left) + var(--jis-nav-width));
   z-index: var(--layer-index-top);
   transition: all 600ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  position: fixed;
+  overflow: scroll;
 }
 
 .jis-nav-container.open{
@@ -855,7 +952,7 @@ or image will be blank
 }
 
 .jis-nav-container.closed{
-  transform: translateX(-30vw);
+  transform: translateX(var(--jis-nav-width));
 }
 
 .current-page-title{
@@ -868,16 +965,13 @@ or image will be blank
   color: var(--color-jis-yellow-5);
 }
 
-/* Navigation
------------------------------------------------ */
-
-.jis-nav-container-inner{
+.jis-nav-container-inner, .jis-subnav{
   padding: 1.3% 0;
   list-style-type: none;
   margin: 0;
 }
 
-.jis-nav-container-inner li a{
+.jis-nav-container-inner li a, .jis-subnav-container li a{
   color: #fff;
   padding: 1rem 0;
   display: block;
@@ -888,13 +982,26 @@ or image will be blank
   transition: all 300ms ease;
 }
 
-.jis-nav-container-inner li a:hover{
+.jis-nav-container-inner li a:hover, .jis-subnav-container li a{
   text-decoration: none;
   color: var(--color-jis-brown-5);
   border-right: 3px solid var(--color-jis-brown-5);
   border-top: 1px solid rgba(255, 201, 131, .013);
   border-bottom: 1px solid rgba(255, 201, 131, .013);
   background-color: rgba(255, 201, 131, .113);
+}
+
+.jis-subnav-container{
+  position: absolute;
+  background-color: rgba(0,0,0,0.95);
+  width: var(--jis-nav-width);
+  height: var(--jis-nav-height);
+  top: var(--jis-nav-pos-top);
+  left: var(--jis-nav-pos-left);
+  z-index: var(--layer-index-top);
+  transition: all 600ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-left: 1px solid var(--color-jis-brown-5);
+  overflow: scroll;
 }
 
 @keyframes slide-in {
@@ -943,6 +1050,8 @@ or image will be blank
   height: 100vh;
   align-items: center;
   justify-content: center;
+  top: 0;
+  left: 0;
 }
 
 .jis-close-search-btn{
@@ -959,6 +1068,11 @@ or image will be blank
   background-color: rgba(255, 255, 255, 0.13);
   position: relative;
   border-bottom: 3px solid #666;
+}
+
+.jis-search-form.form-online{
+  width: 40vw;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .jis-search-form-container input[type="search"]{
@@ -1311,7 +1425,7 @@ p {
     background-repeat: no-repeat;
     background-origin: content-box;
     background-position: center center;
-    background-size: 100%;
+    background-size: 100% 100%;
     min-height: 13rem;
     transition: all 3s ease-in;
   }
@@ -1328,7 +1442,7 @@ p {
   }
 
   .jis-primary-video-home figure:hover{
-    background-size: 105%;
+    background-size: 105% 105%;
     border-color: var(--color-jis-blue-4);
   }
 
@@ -1886,14 +2000,14 @@ p {
   }
 
   .jis-photo-card:hover figure{
-    background-size: 105%;
+    background-size: 105% 105%;
   }
 
   .jis-photo-card figure{
     position: relative;
     background-origin: border-box;
     background-position: center center;
-    background-size: 100%;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     transition: all 3s ease-out;
     border-bottom: 8px solid var(--color-jis-blue-4);
